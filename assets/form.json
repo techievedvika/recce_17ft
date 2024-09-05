@@ -1,0 +1,1943 @@
+{
+  "formDetails": {
+    "formName": "School Baseline Survey Questionnaire"
+  },
+  "sections": [
+    {
+      "title": "School General Information",
+      "subtitle":"General Information",
+      "fields": [
+        {
+          "labelText":"Enter UDISE Code" ,
+          "id": "udise",
+          "hintText": "UDISE Code",
+          "type": "number",
+          "validation": { "required": true }
+        },
+        {
+          "labelText":"School Name" ,
+           "id": "school",
+          "hintText": "Enter School Name",
+          "type": "text",
+          "validation": {
+            "required": true
+          }
+        },
+        {
+          "labelText":"School Adress Line 1" ,
+           "id": "addressline_1",
+          "hintText": "Building Name, Street Address",
+          "type": "text",
+          "validation": {
+            "required": true
+          }
+        },
+        {
+          "labelText":"Address Line 2" ,
+           "id": "addressline_2",
+          "hintText": "Landmark, Additional Info",
+          "type": "text",
+          "validation": {
+            "required": true
+          }
+        },
+        {
+          "labelText":"Principal / Headmaster Name" ,
+           "id": "principal",
+          "hintText": "Prinicipal Name",
+          "type": "text",
+          "validation": {
+            "required": true
+          }
+        },
+        {
+          "labelText":"Enter PINCODE" ,
+          "id": "pincode",
+          "hintText": "Enter PINCODE",
+          "type": "number",
+          "validation": { "required": true }
+        },
+        {
+          "labelText":"Contact Number" ,
+           "id": "principal_contact",
+          "hintText": "Enter the contact number",
+          "type": "phone",
+          "validation": {
+            "required": true
+          }
+        },
+        {
+          "labelText":"Name of Vice Principal" ,
+           "id": "viceprincipal",
+          "hintText": "Enter name",
+          "type": "text",
+          "validation": {
+            "required": true
+          }
+        },
+        {
+          "labelText":"Vice Prinicipal Contact Number" ,
+           "id": "viceprincipal_contact",
+          "hintText": "Enter the contact number",
+          "type": "phone",
+          "validation": {
+            "required": true
+          }
+        },
+        {
+          "labelText":"Landline Number of School" ,
+           "id": "landline_school",
+          "hintText": "011-23456789",
+          "type": "landline",
+          "validation": {
+            "required": true
+
+          }
+          
+        },
+        {
+          "labelText":"Email Id School" ,
+           "id": "email_school",
+          "hintText": "xyz@abc.com",
+          "type": "email",
+          "validation": {
+            "required": true,
+            "pattern": "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$"
+          }
+        },
+        {
+          "labelText":"Year of Establishment of the school" ,
+          "hintText": "Select Year",
+
+          "id": "year_of_establishment",
+          "label": "Select Year ",
+          "type": "year_picker",
+          "year":1950,
+          "options": ["1950","2000", "2001", "2002", "2003", "2004","2024"]
+        },
+        {
+          "labelText":"Type of School" ,
+          "hintText": "Select Type",
+          "id": "school_type",
+          "label": "Select type ",
+          "type": "dropdown",
+          "options": ["Primary", "Secondary", "Higher Secondary"]
+        },
+        {
+          "labelText":"Grades Taught" ,
+          "hintText": "Selct Grades",
+          "id": "grades_taught",
+          "label": "Grades taught in School",
+          "type": "checkbox",
+          "options": [
+            "NRY", "LKG", "UKG", "Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5",
+            "Grade 6", "Grade 7", "Grade 8", "Grade 9", "Grade 10", "Grade 11", "Grade 12"
+          ]
+        },
+        {
+          "labelText":"School Funding" ,
+          "hintText": "Selct School Funder",
+          "id": "school_funding",
+          "label": "School Funding",
+          "type": "dropdown",
+          "options": ["Government Funded", "Unaided", "Private", "Other"],
+          "otherOption": {
+            "id": "school_funder_other_option",
+            "labelText": "Please specify"
+          }
+        },
+        {
+          "labelText":"What is the medium of instruction of your school?" ,
+           "id": "instruction_medium",
+          "hintText": "Enter the instruction medium",
+          "type": "text",
+          "validation": {
+            "required": true
+          }
+        },
+        {
+          "labelText": "School Timing",
+          "id": "school_timing",
+          "hintText": "8:00 AM to 2:00 PM",
+          "type": "time_picker",
+          "validation": {
+            "required": true
+          },
+          "start_id": "school_start_time",
+          "end_id": "school_end_time",
+          "start_time_label": "Start Time",
+          "end_time_label": "End Time"
+        },
+        
+       
+        {
+          "labelText":"School Fees/student" ,
+           "id": "school_fee",
+          "hintText": "Enter the fee",
+          "type": "number",
+          "validation": {
+            "required": true
+          }
+        },
+        {
+          "labelText":"Total classrooms in the school" ,
+           "id": "total_classroom",
+           "hintText": "Enter number",
+          "type": "number",
+          "validation": {
+            "required": true
+          }
+        },
+        {
+          "labelText":"Total number of teachers" ,
+           "id": "total_teachers",
+           "hintText": "Enter number",
+           "type": "number",
+          "validation": {
+            "required": true
+          }
+        },
+        {
+          "labelText":"Number of non-teaching staff" ,
+           "id": "total_non_teaching_staff",
+           "hintText": "Enter number",
+          "type": "number",
+          "validation": {
+            "required": true
+          }
+        },
+       
+        {
+          "labelText":"" ,
+           "id": "teacher_count",
+          "hintText": "Enter number",
+          "type": "teacher_count",
+          "validation": {
+            "required": true
+          }
+        }  ]},
+        
+{
+      "title": "School Facilities Information",
+      "subtitle":"Water Related Information",
+      "fields": [
+        {
+          "labelText":"What is the main Source of water" ,
+          "hintText": "Selct Source ",
+          "id": "source_water",
+          "label": "Source of water",
+          "type": "dropdown",
+          "options": ["Municipality Connection", "Well", "Hand Pump", "Private","Other"],
+          "otherOption": {
+            "id": "source_water_other_option",
+            "labelText": "Please specify"
+          }
+        },
+        {
+          "labelText":"Timing of water supply" ,
+           "id": "water_supply",
+          "hintText": "8:00 AM to 2:00 PM",
+          "type": "time_picker",
+          "validation": {
+            "required": true
+          },
+          "start_id": "water_supply_start_time",
+          "end_id": "water_supply_end_time",
+          "start_time_label": "Start Time",
+          "end_time_label": "End Time"
+        },
+        {
+          "labelText":"Type of water storage tank" ,
+          "hintText": "Selct type ",
+          "id": "type_tank",
+          "label": "Source of water",
+          "type": "tank_and_number",
+          "options": ["Plastic Tank", "Cement Tank", "Stone Tank"]
+        },
+        {
+          "labelText":"Total storage capacity of water tank (in Litres) " ,
+           "id": "storage_capacity",
+           "hintText": "Enter capacity",
+          "type": "number",
+          "validation": {
+            "required": true
+          }
+        },
+       
+        {
+          "labelText":"How is the drinking water stored in the school?" ,
+           "id": "drinking_water",
+          "hintText": "e.g: Plastic bottles etc ",
+          "type": "text",
+          "validation": {
+            "required": true
+          }
+        },
+ 
+        {
+          "labelText": "Is there a water purification system?",
+          "hintText": "Select type",
+          "id": "water_purification_system",
+          "type": "radio_with_other",
+          "options": ["Yes", "No"],
+          "validation": {
+            "required": true
+          },
+          "otherOption": {
+            "labelText": "",
+            "hintText": "",
+            "id": "",
+            "type":"section",
+            "fields":[
+              {
+                "labelText": "What kind of water purification system is there?",
+                "hintText": "Enter the purification system",
+                "id": "water_purification_system_kind",
+                "type": "text"
+              }
+              
+  
+            ]}
+
+          
+         
+        },
+
+        {
+          "labelText": "Are water quality inspections done?",
+          "hintText": "Select type",
+          "id": "water_inspection",
+          "type": "radio_with_other",
+          "options": ["Yes", "No"],
+          "validation": {
+            "required": true
+          },
+          "otherOption": {
+            "labelText": "",
+            "hintText": "",
+            "id": "",
+            "type":"section",
+            "fields":[
+              {
+                "labelText": "Frequency of water quality inspections?",
+                "hintText": "Enter the frequency",
+                "id": "frequency_water_inspection",
+                "type": "text"
+              }
+              
+  
+            ]}
+          
+          
+        },
+          
+        
+        
+        {
+          "labelText": "Do children complain of the disorders of water? (Stomach ache, gout, fever, etc.) ",
+          "hintText": "Select type",
+          "id": "disorders_water",
+          "type": "radio",
+          "options": ["Yes", "No"],
+          "validation": {
+            "required": true
+          }
+        },
+        
+        {
+          "labelText": "Is Rainwater Harvesting Facility available?",
+          "hintText": "Select type",
+          "id": "water_harvesting",
+          "type": "radio_with_other",
+          "options": ["Yes", "No"],
+         
+          "validation": {
+            "required": true
+          },
+          "otherOption": {
+            "labelText": "",
+            "hintText": "",
+            "id": "",
+            "type":"section",
+            "fields": [
+              {
+                "labelText": "How much liter of water is conserved?",
+                "hintText": "Enter conserverd water quantity",
+                "id": "conserved_water",
+                "type": "text"
+              }
+              
+            ]
+          }
+        },
+        {
+          "labelText": "What is the total roof area of the school?",
+          "hintText": "Enter the area",
+          "id": "roof_area",
+          "type": "number_with_suffix",
+          "suffixText": ".sq metres",
+          "validation": {
+            "required": true,
+            "pattern": "^[0-9]+$", 
+            "errorMessage": "Please enter a valid number"
+          }
+        },
+        {
+          "labelText": "Does the school have bore well?",
+          "hintText": "Select type",
+          "id": "bore_well",
+          "type": "radio_with_other",
+          "options": ["Yes", "No"],
+         
+          "validation": {
+            "required": true
+          },
+          "otherOption": {
+            "labelText": "",
+            "hintText": "",
+            "id": "",
+            "type":"section",
+            "fields":[
+            {
+              "labelText": "Is the bore well water used?",
+              "id": "borewell_used",
+              "type": "radio",
+              "options": ["Yes", "No"],
+              "validation": {
+                "required": true
+              }
+            }
+          ]
+          }
+        },
+        {
+          "labelText": "Does the water get stagnant around the school in rainy season?",
+          "hintText": "Select type",
+          "id": "stagnant_water",
+          "type": "radio_with_other",
+          "options": ["Yes", "No"],
+          "validation": {
+            "required": true
+          },
+          "otherOption": {
+            "labelText": "",
+            "hintText": "",
+            "type":"section",
+            "id": "",
+            "fields":[
+              {
+                "labelText": "Do children face problem due to this?",
+                "id": "stagnant_water_problem",
+                "type": "radio",
+                "options": ["Yes", "No"]
+              }
+            ]
+          }
+        
+        },
+        {
+          "labelText": "Do leakages happen in school in the rainy season? ",
+          "hintText": "Select type",
+          "id": "leakages",
+          "type": "radio",
+          "options": ["Yes", "No"],
+          "validation": {
+            "required": true
+          }
+        },
+
+        {
+          "labelText": "Is there toilet system in the school?",
+          "hintText": "Select type",
+          "id": "toilet_system",
+          "type": "radio",
+          "options": ["Yes", "No"],
+          "validation": {
+            "required": true
+          },
+          "otherOption":{
+            "labelText": "",
+            "hintText": "",
+            "type":"section",
+            "id": "",
+            "fields":[
+              {
+                "labelText": "Do the students use toilets?",
+                "hintText": "Select type",
+                "id": "use_toilets",
+                "type": "radio",
+                "options": ["Yes", "No"],
+                "validation": {
+                  "required": true
+                }
+              },
+              {
+                "labelText": "Are there separate toilets for boys and girls?",
+                "hintText": "Select type",
+                "id": "separate_toilets",
+                "type": "radio_with_other",
+                "options": ["Yes", "No"],
+                "validation": {
+                  "required": true
+                },
+                "otherOption": {
+                  "labelText": "Mention number of toilets & urinals",
+                  "hintText": "",
+                  "id": "",
+                  "type": "section",
+                  
+                  "fields": [
+                    {
+                      "labelText": "Toilet Boys:",
+                      "hintText": "Enter number",
+                      "id": "toilet_boys",
+                      "type": "numeric"
+                    },
+                    {
+                      "labelText": "Urinals Boys:",
+                      "hintText": "Enter number",
+                      "id": "urinals_boys",
+                      "type": "numeric"
+                    },
+                    {
+                      "labelText": "Toilet Girls:",
+                      "hintText": "Enter number",
+                      "id": "toilet_girls",
+                      "type": "numeric"
+                    },
+                    {
+                      "labelText": "Urinals Girls:",
+                      "hintText": "Enter number",
+                      "id": "urinals_girls",
+                      "type": "numeric"
+                    },
+                    {
+                      "labelText": "Is there a proper mechanism for handicapped children to go to the sanitary latrine?",
+                      "hintText": "Select type",
+                      "id": "handicapped_mechanism",
+                      "type": "radio",
+                      "options": ["Yes", "No"],
+                      "validation": {
+                        "required": true
+                      }
+                    },
+                    {
+                      "labelText": "Is there a water system in toilet?",
+                      "hintText": "Select type",
+                      "id": "water_system_in_toilet",
+                      "type": "radio_with_other",
+                      "options": ["Yes", "No"],
+                      "validation": {
+                        "required": true
+                      },
+                      
+                      "otherOption": {
+                        "labelText": "",
+                        "hintText": "",
+                        "id": "",
+                        "type": "section",
+                        
+                        "fields": [
+                          {
+                            "labelText": "Enter type of water system:",
+                            "hintText": "Enter water system type",
+                            "id": "type_water_system",
+                            "type": "text"
+                          }
+                        ]}
+                    },
+                    {
+                      "labelText": "Is there a proper ventilation system in the toilet?",
+                      "hintText": "Select type",
+                      "id": "ventilation_system",
+                      "type": "radio",
+                      "options": ["Yes", "No"],
+                      "validation": {
+                        "required": true
+                      }
+                    },
+                    {
+                      "labelText": "Does toilet have tiles?",
+                      "hintText": "Select type",
+                      "id": "tiles",
+                      "type": "radio",
+                      "options": ["Yes", "No"],
+                      "validation": {
+                        "required": true
+                      }
+                    },
+                    {
+                      "labelText": "Are handwash basins available in the toilet?",
+                      "hintText": "Select type",
+                      "id": "handwash_basins",
+                      "type": "radio_with_other",
+                      "options": ["Yes", "No"],
+                      "validation": {
+                        "required": true
+                      },
+                      
+                      "otherOption": {
+                        "labelText": "",
+                        "hintText": "",
+                        "id": "",
+                        "type": "section",
+                        
+                        "fields": [
+                          {
+                            "labelText": "Number of handwash basins",
+                            "hintText": "Enter number",
+                            "id": "no_handwash_basin",
+                            "type": "number"
+                          }
+                          
+                        ]}
+                    },
+                    {
+                      "labelText": "Is group handwashing facility with soap available at schools?",
+                      "hintText": "Select type",
+                      "id": "group_handwash_facility",
+                      "type": "radio_with_other",
+                      "options": ["Yes", "No"],
+                      "validation": {
+                        "required": true
+                      },
+                      
+                      "otherOption": {
+                        "labelText": "",
+                        "hintText": "",
+                        "id": "",
+                        "type": "section",
+                        
+                        "fields": [
+                          {
+                            "labelText": "Number of Taps",
+                            "hintText": "Enter number",
+                            "id": "no_taps",
+                            "type": "numeric"
+                          },
+                          {
+                            "labelText": "Number of soap trays/dispensers",
+                            "hintText": "Enter number",
+                            "id": "no_soap_dispensers",
+                            "type": "numeric"
+                          }
+                          
+                        ]}
+                    },
+                    {
+                      "labelText": "Are sanitary materials (eg. phenyl, soaps, etc.) available?",
+                      "hintText": "Select type",
+                      "id": "sanitary_materials",
+                      "type": "radio_with_other",
+                      "options": ["Yes", "No"],
+                      "validation": {
+                        "required": true
+                      },
+                      
+                      "otherOption": {
+                        "labelText": "",
+                        "hintText": "",
+                        "id": "",
+                        "type": "section",
+                        
+                        "fields": [
+                          {
+                            "labelText": "Is it sufficiently provided?",
+                           
+                            "id": "sufficient_amount_sanitary",
+                            "type": "radio",
+                            "options": ["Yes", "No"],
+                            "validation": {
+                              "required": true
+                            }
+                          },
+                          {
+                            "labelText": "Is toilet is being cleaned?",
+                            "hintText": "",
+                            "id": "toilet_cleaned",
+                            "type": "radio_with_other",
+                            "options": ["Yes", "No"],
+                            "validation": {
+                              "required": true
+                            },
+                            
+                            "otherOption": {
+                              "labelText": "",
+                              "hintText": "",
+                              "id": "",
+                              "type": "section",
+                              
+                              "fields": [
+                                {
+                                "labelText": "How toilet is being cleaned??",
+                                "hintText": "Specify type",
+                                "id": "cleaned_process",
+                                "type": "text"
+                                },
+                                {
+                                  "labelText": "Frequency of toilet cleaning?",
+                                  "hintText": "daily, once in a week",
+                                  "id": "frequency_cleaning",
+                                  "type": "text"
+                                },
+                                {
+                                  "labelText": "Who cleans the toilets?",
+                                  "hintText": "",
+                                  "id": "toilet_clean_by",
+                                  "type": "text"
+                                }
+                              ]}
+                          }
+                          
+                        ]}
+                    },
+                    {
+                      "labelText": "Is every toilet equipped with a bucket & Mug for washing",
+                      "hintText": "Select type",
+                      "id": "toilet_equipped",
+                      "type": "radio",
+                      "options": ["Yes", "No"],
+                      "validation": {
+                        "required": true
+                      }
+                    },
+                    {
+                      "labelText": "Where does sewage go from toilets?",
+                      "hintText": "Select type",
+                      "id": "toilet_equipped",
+                      "type": "radio",
+                      "options": ["Septic tank", "aborbent","open drainage","river and train","other","Not applicable"],
+                      "validation": {
+                        "required": true
+                      },
+                      "otherOption": {
+                        "id": "sewage_other_option",
+                        "labelText": "Please specify"
+                      }
+                    },
+                    {
+                      "labelText":"How does disposal from toilet management take place?" ,
+                       "id": "disposal_management",
+                      "hintText": "Plastic botlles, ",
+                      "type": "text",
+                      "validation": {
+                        "required": true
+                      }
+                    }
+            ]
+          }
+        },
+        
+       
+              {
+                "labelText": "Is there a closed dustbin in female toilets for disposal of sanitary napkins?",
+                "hintText": "",
+                "id": "closed_dustbin",
+                "type": "radio_with_other",
+                "options": ["Yes", "No"],
+                "validation": {
+                  "required": true
+                },
+                
+                "otherOption": {
+                  "labelText": "",
+                  "hintText": "",
+                  "id": "",
+                  "type": "section",
+                  
+                  "fields": [
+                    {
+                    "labelText": "Number of closed dustbins",
+                    "hintText": "Enter number",
+                    "id": "no_closed_dustbin",
+                    "type": "numeric"
+                    },
+                    {
+                      "labelText": "How is it treated?",
+                      "hintText": "Write here",
+                      "id": "treated_closed_dustbin",
+                      "type": "text"
+                      }
+                    
+                  ]}   
+              },
+              {
+                "labelText": "Is dustbin available to collect garbage in the classroom?",
+                "hintText": "",
+                "id": "dustbin_available",
+                "type": "radio_with_other",
+                "options": ["Yes", "No"],
+                "validation": {
+                  "required": true
+                },
+                
+                "otherOption": {
+                  "labelText": "",
+                  "hintText": "",
+                  "id": "",
+                  "type": "section",
+                  
+                  "fields": [
+                    {
+                    "labelText": "Number of dustbins",
+                    "hintText": "Specify type",
+                    "id": "no_dustbins",
+                    "type": "numeric"
+                    }
+                    
+                  ]}   
+              },
+              {
+                "labelText": "Does segregation of waste (dry/wet) take place??",
+                "hintText": "Select type",
+                "id": "waste_segregation",
+                "type": "radio",
+                "options": ["Yes", "No"],
+                "validation": {
+                  "required": true
+                }
+              },
+              {
+                "labelText": "How is the garbage disposal done?",
+                "hintText": "Select type",
+                "id": "garbage_disposal",
+                "type": "radio",
+                "options": ["Garbage vehicle from Local government", "fireplace","Trench","Other"],
+                "validation": {
+                  "required": true
+                },
+                "otherOption": {
+                  "id": "garbage_disposal_other_option",
+                  "labelText": "Please specify"
+                }
+              },
+              {
+                "labelText": "Are there health check-up camps conducted in school?",
+                "hintText": "",
+                "id": "health_checkup_camp",
+                "type": "radio_with_other",
+                "options": ["Yes", "No"],
+                "validation": {
+                  "required": true
+                },
+                
+                "otherOption": {
+                  "labelText": "",
+                  "hintText": "",
+                  "id": "",
+                  "type": "section",
+                  
+                  "fields": [
+                    {
+                    "labelText": "what is its frequency?",
+                    "hintText": "e.g: once in a month etc.",
+                    "id": "frequency_health_camp",
+                    "type": "text"
+                    },
+                    {
+                      "labelText": "who conducts the camps?",
+                      "hintText": "Enter name",
+                      "id": "camp_conduct",
+                      "type": "text"
+                      }
+                    
+                  ]}   
+              },
+              {
+                "labelText": "Have the Government provided any Sanitation/self-hygiene related training to teachers / non-teaching staff / students?",
+                "hintText": "Select type",
+                "id":"training_staff",
+                "type": "radio",
+                "options": ["Yes", "No"],
+                "validation": {
+                  "required": true
+                }
+              },
+              {
+                "labelText": "Mention the total number of handicapped and children with special needs in your school.",
+                "hintText": "Specify type",
+                "id": "no_handicapped_children",
+                "type": "number"
+                },
+                {
+                  "labelText": "Are WASH (water, sanitation & hygiene) trainings conducted in the school?",
+                  "id": "wash_training_teachers",
+                  "type": "radio_with_other",
+                  "options": ["Yes", "No"],
+                  "validation": {
+                    "required": true
+                  },
+                  
+                  "otherOption": {
+                    "labelText": "",
+                    "hintText": "",
+                    "id": "",
+                    "type": "section",
+                    
+                    "fields": [
+                      {
+                      "labelText": "What is its frequency?",
+                      "hintText": "e.g Once in a month",
+                      "id": "wash_training_teachers_frequency",
+                      "type": "text"
+                      }
+                      
+                    ]}   
+                },
+                {
+                  "labelText": "Is open defecation observed inside the school or just outside the school campus?",
+                  "hintText": "Select type",
+                  "id":"open_defecation",
+                  "type": "radio",
+                  "options": ["Yes", "No"],
+                  "validation": {
+                    "required": true
+                  }
+                },
+                {
+                  "labelText": "Does the O and M staff have enough safety materials like gloves, masks, apron, shoes, good quality cleaning materials/equipment?",
+                  "hintText": "Select type",
+                  "id":"safety_materials_OM",
+                  "type": "radio",
+                  "options": ["Yes", "No"],
+                  "validation": {
+                    "required": true
+                  }
+                }
+
+                
+
+            ]
+          }
+        
+         
+        }
+              
+       
+        
+        
+      ]
+    },
+    {
+      "title": "Other Information",
+      "subtitle":"Water Related Information",
+      "fields": [
+        
+          {
+            "labelText":"What is the tentative amount spent on O&M of WASH facilities in schools annually in Rupees?" ,
+             "id": "tentative_amt",
+            "hintText": "Enter amount",
+            "type": "number",
+            "validation": {
+              "required": true
+            }
+          },
+          {
+            "labelText":"What is the source of WASH funds?" ,
+             "id": "source_funds",
+            "hintText": "Source of WASH funds",
+            "type": "text",
+            "validation": {
+              "required": true
+            }
+          },
+          {
+            "labelText": "Is there a school management committee (SMC)?",
+            "hintText": "Select type",
+            "id": "smc_value",
+            "type": "radio_with_other",
+            "options": ["Yes", "No"],
+            "validation": {
+              "required": true
+            },
+            
+            "otherOption": {
+              "labelText": "",
+              "hintText": "",
+              "id": "",
+              "type": "section",
+              
+              "fields": [
+                {
+                  "labelText": "Total members of the SMC",
+                  "hintText": "Enter number",
+                  "id": "smc_member",
+                  "type": "numeric"
+                },
+                {
+                  "labelText": "Name of Chairman / Secretary of SMC",
+                  "hintText": "Enter name ",
+                  "id": "smc_chairman",
+                  "type": "text"
+                },
+                {
+                  "labelText": "Contact number of SMC",
+                  "hintText": "contact number",
+                  "id": "smc_contact",
+                  "type": "numeric"
+                },
+                {
+                  "labelText": "Year of establishment of committee",
+                  "hintText": "Establishment Year",
+                  "id": "smc_year_of_establishment",
+                  "type": "year_picker",
+                  "year":1950,
+                  "options": ["1950","2000", "2001", "2002", "2003", "2004","2024"]
+
+                }
+              
+                
+              ]}
+          },
+          {
+            "labelText":"What are social activities implemented in school?" ,
+             "id": "social_activities",
+            "hintText": "Eg.: plantation, environment day, cleanliness day, world toilets day, world water day, art sports event, World Handwashing Day)",
+            "type": "text",
+            "validation": {
+              "required": true
+            }
+          },
+  
+          {
+            "labelText": "Is there fund available from the government for water and sanitation work or maintenance?",
+            "hintText": "Select type",
+            "id": "gov_fund_available",
+            "type": "radio_with_other",
+            "options": ["Yes", "No"],
+            "validation": {
+              "required": true
+            },
+            "otherOption": {
+              "labelText": "Add Government Fund Details",
+              "hintText": "",
+              "id": "gov_fund_details",  
+              "type": "bottomsheet",
+              "fields": [
+                {
+                  "labelText": "Work Name",
+                  "hintText": "Enter work name",
+                  "id": "work_name",
+                  "type": "text"
+                },
+                {
+                  "labelText": "Annual Fund",
+                  "hintText": "Enter annual fund",
+                  "id": "annual_fund",
+                  "type": "text"
+                },
+                {
+                  "labelText": "Disbursal Duration",
+                  "hintText": "Select duration",
+                  "id": "disbursal_duration",
+                  "type": "radio",
+                  "options": ["Annually", "Half yearly"],
+                  "validation": {
+                    "required": true
+                  }
+                }
+              ]
+            }
+          },
+          
+          {
+            "labelText": "Is there Midday meal facility available?",
+            "hintText": "Select type",
+            "id": "mid_day_meal",
+            "type": "radio_with_other",
+            "options": ["Yes", "No"],
+            "validation": {
+              "required": true
+            },
+            
+            "otherOption": {
+              "labelText": "",
+              "hintText": "Specify type",
+              "id": "",
+              "type": "section",
+              
+              "fields": [
+               
+                {
+                  "labelText": "How do you monitor the hygiene part in preparing & serving food to children?",
+                  "hintText": "Write here..",
+                  "id": "hygiene_monitoring",
+                  "type": "text"
+                  
+                  
+                },
+                {
+                  "labelText": "Do all students practice group handwashing with soap and water before eating mid-day meal?",
+                  "hintText": "Select type",
+                  "id": "practice",
+                  "type": "radio",
+                  "options": ["Yes", "No"],
+                  "validation": {
+                    "required": true
+                  }
+                }
+               
+                
+  
+                
+              ]}
+          },
+          {
+            "labelText": "Is the playground facility available?",
+            "hintText": "Select type",
+            "id": "playground",
+            "type": "radio_with_other",
+            "options": ["Yes", "No"],
+            "validation": {
+              "required": true
+            },
+            
+            "otherOption": {
+              "labelText": "",
+              "hintText": "Specify type",
+              "id": "",
+              "type": "section",
+              
+              "fields": [
+               
+                {
+                  "labelText": "Type of sports taken during period.",
+                  "hintText": "Sports type",
+                  "id": "sport_type",
+                  "type": "text"
+                  
+                  
+                }
+              
+               
+                
+  
+                
+              ]}
+          },
+          {
+            "labelText": "Is WASH training for teachers conducted at schools",
+            "hintText": "Select type",
+            "id": "wash_training_teachers",
+            "type": "radio",
+            "options": ["Yes","No"],
+            "validation": {
+              "required": true
+            }
+          },
+          {
+            "labelText": "Does the school display and use Water, Sanitation and Hygiene related posters and materials for promoting hygiene education?",
+            "hintText": "Select type",
+            "id": "poster_display",
+            "type": "radio",
+            "options": ["Yes","No"],
+            "validation": {
+              "required": true
+            }
+          }
+  
+        
+      ]
+      },
+
+      {
+        "title": "Menstrual Hygiene Facility for school Girls & Teachers",
+        "subtitle":"Water Related Information",
+        "fields": [
+          
+          
+            
+              {
+              "labelText": "Does the School have separate toilets for girls?",
+              "hintText": "Select type",
+              "id": "separate_toilets_girls",
+              "type": "radio_with_other",
+              "options": ["Yes", "No"],
+              "validation": {
+                "required": true
+              },
+              
+              "otherOption": {
+                "labelText": "",
+                "hintText": "Specify type",
+                "id": "",
+                "type": "section",
+              
+                
+                "fields": [
+                 
+                  {
+                    "labelText": "Availability of water inside the girl’s toilet?",
+                    "hintText": "Select type",
+                    "id": "water_inside_toilet",
+                    "type": "radio",
+                    "options": ["Yes","No"],
+                    "validation": {
+                      "required": true
+                    }
+                    
+                    
+                  },
+                  {
+                    "labelText": "Does girl’s toilet have handwash facility with soap available inside the toilet?",
+                    "hintText": "Select type",
+                    "id": "handwash_facility",
+                    "type": "radio_with_other",
+                    "options": ["Yes","No"],
+                    "validation": {
+                      "required": true
+                    },
+                    "otherOption": {
+                      "labelText": "",
+                      "hintText": "Specify type",
+                      "id": "",
+                      "type": "section",
+                      
+                      "fields": [
+                       
+                        {
+                          "labelText": "Availability of water?",
+                          "hintText": "Select type",
+                          "id": "water_availability",
+                          "type": "radio",
+                          "options": ["Yes","No"],
+                          "validation": {
+                            "required": true
+                          }
+                          
+                          
+                        },
+                        {
+                          "labelText": "Availability of soap?",
+                          "hintText": "Select type",
+                          "id": "soap_availability",
+                          "type": "radio",
+                          "options": ["Yes","No"],
+                          "validation": {
+                            "required": true
+                          }
+                          
+                          
+                        }
+                      ]
+                    }
+                    
+                    
+                  },
+                  {
+                    "labelText": "Is there a mirror installed in girl’s toilet?",
+                    "hintText": "Select type",
+                    "id": "mirror_installed",
+                    "type": "radio",
+                    "options": ["Yes","No"],
+                    "validation": {
+                      "required": true
+                    }
+                    
+                    
+                  },
+                  {
+                    "labelText": "Is there provision of dustbins with lid in each girl toilet?",
+                    "hintText": "Select type",
+                    "id": "dustbins_lid",
+                    "type": "radio",
+                    "options": ["Yes","No"],
+                    "validation": {
+                      "required": true
+                    }
+                    
+                    
+                  },
+                  {
+                    "labelText": "Does girls toilet have proper latch?",
+                    "hintText": "Select type",
+                    "id": "proper_latch",
+                    "type": "radio",
+                    "options": ["Yes","No"],
+                    "validation": {
+                      "required": true
+                    }
+                    
+                    
+                  },
+                  {
+                    "labelText": "Does girls toilet have storage space for napkin?",
+                    "hintText": "Select type",
+                    "id": "storage_napkins",
+                    "type": "radio",
+                    "options": ["Yes","No"],
+                    "validation": {
+                      "required": true
+                    }
+                    
+                    
+                  },
+                  {
+                    "labelText": "Does girls toilet have hook for hanging cloth inside the girls toilet?",
+                    "hintText": "Select type",
+                    "id": "hook_hanging",
+                    "type": "radio",
+                    "options": ["Yes","No"],
+                    "validation": {
+                      "required": true
+                    }
+                    
+                    
+                  }
+                  
+                ]}},
+              
+                  {
+                    "labelText": "Does the school have changing room facility for girls?",
+                    "hintText": "Select type",
+                    "id": "changing_room",
+                    "type": "radio_with_other",
+                    "options": ["Yes","No"],
+                    "validation": {
+                      "required": true
+                    },
+    
+                    "otherOption": {
+    
+                      "labelText": "",
+                      "hintText": "Specify type",
+                      "id": "",
+                      "type": "section",
+                      
+                      "fields": [
+                       
+                        {
+                          "labelText": "Is there a mirror installed in girl’s changing room?",
+                          "hintText": "Select type",
+                          "id": "mirror_in_changingroom",
+                          "type": "radio",
+                          "options": ["Yes","No"],
+                          "validation": {
+                            "required": true
+                          }
+                          
+                          
+                        }
+                      ]
+    
+    
+                    }
+                    
+                    
+                  },
+                  {
+                    "labelText":"What type of Sanitary aid are distributed at the schools?" ,
+                    "hintText": "Selct Grades",
+                    "id": "type_sanitary_aid",
+                    "label": "Sanitary aid distributed",
+                    "type": "checkbox",
+                    "options": [
+                      "Cloth Napkin", "Sanitary Napkin", "Menstrual Cups", "Not Applicable"
+                    ]
+                  },
+                  {
+                    "labelText": "Is the school currently having sanitary pad vending or storage facility?",
+                    "hintText": "Select type",
+                    "id": "sanitary_storage_facility",
+                    "type": "radio",
+                    "options": ["Yes","No"],
+                    "validation": {
+                      "required": true
+                    }
+                    
+                    
+                  },
+                  {
+                    "labelText": "Does the school have incinerator machine for sanitary napkin disposal?",
+                    "hintText": "Select type",
+                    "id": "incinerator_machine",
+                    "type": "radio_with_other",
+                    "options": ["Yes","No"],
+                    "validation": {
+                      "required": true
+                    },
+    
+                    "otherOption": {
+    
+                      "labelText": "",
+                      "hintText": "Specify type",
+                      "id": "",
+                      "type": "section",
+                      
+                      "fields": [
+                       
+                        {
+                          "labelText": "Is the height suitable for all adolescent girls to operate?",
+                          "hintText": "Select type",
+                          "id": "height_suitable",
+                          "type": "radio",
+                          "options": ["Yes","No"],
+                          "validation": {
+                            "required": true
+                          }
+                          
+                          
+                        }
+                      ]
+    
+    
+                    }
+                    
+                    
+                  },
+                  {
+                    "labelText": "Does the school stock the sanitary napkins on monthly basis??",
+                    "hintText": "Select type",
+                    "id": "stock_sanitary",
+                    "type": "radio",
+                    "options": ["Yes","No"],
+                    "validation": {
+                      "required": true
+                    }
+                    
+                    
+                  },
+                 
+                  {
+                    "labelText": "How much quantity of sanitary napkins on an average are required in the school on monthly basis?",
+                    "hintText": "Enter the quantity",
+                    "id": "no_pads",
+                    "type": "text"
+                    
+                    
+                  },
+                  {
+                    "labelText": "Do you charge for sanitary napkins?",
+                    "hintText": "Select type",
+                    "id": "charge_napkings",
+                    "type": "radio_with_other",
+                    "options": ["Yes","No"],
+                    "validation": {
+                      "required": true
+                    },
+    
+                    "otherOption": {
+    
+                      "labelText": "",
+                      "hintText": "Specify type",
+                      "id": "",
+                      "type": "section",
+                      
+                      "fields": [
+                       
+                        {
+                          "labelText": "what is the price per napkin?",
+                          "hintText": "Enter price per napkin",
+                          "id": "price_napkin",
+                          "type": "numeric"
+                         
+                          
+                          
+                        }
+                      ]
+    
+    
+                    }
+                    
+                    
+                  },
+                  {
+                    "labelText": "Do you conduct Puberty and menstrual education for school children?",
+                    "hintText": "Select type",
+                    "id": "education_menstrual",
+                    "type": "radio_with_other",
+                    "options": ["Yes","No"],
+                    "validation": {
+                      "required": true
+                    },
+    
+                    "otherOption": {
+    
+                      "labelText": "",
+                      "hintText": "Specify type",
+                      "id": "",
+                      "type": "section",
+                      
+                      "fields": [
+                       
+                        {
+                          "labelText": "what is the frequency?",
+                          "hintText": "e.g Once in a month",
+                          "id": "frequency_education",
+                          "type": "text"
+                         
+                          
+                          
+                        }
+                      ]
+    
+    
+                    }
+                    
+                    
+                  },
+                  {
+                    "labelText": "Do you conduct separate menstrual management and hygiene sessions for girls?",
+                    "hintText": "Select type",
+                    "id": "separate_menstrual",
+                    "type": "radio_with_other",
+                    "options": ["Yes","No"],
+                    "validation": {
+                      "required": true
+                    },
+    
+                    "otherOption": {
+    
+                      "labelText": "",
+                      "hintText": "Specify type",
+                      "id": "",
+                      "type": "section",
+                      
+                      "fields": [
+                       
+                        {
+                          "labelText": "what is the frequency?",
+                          "hintText": "e.g Once in a month",
+                          "id": "frequency_separate_menstrual",
+                          "type": "text"
+                         }
+                      ]
+    
+    
+                    }
+                    
+                    
+                  },
+                  {
+                    "labelText": "Is there any capacity building and awareness session on MHM conducted for teachers?",
+                    "hintText": "Select type",
+                    "id": "mhm_session",
+                    "type": "radio_with_other",
+                    "options": ["Yes","No"],
+                    "validation": {
+                      "required": true
+                    },
+    
+                    "otherOption": {
+    
+                      "labelText": "",
+                      "hintText": "Specify type",
+                      "id": "",
+                      "type": "section",
+                      
+                      "fields": [
+                       
+                        {
+                          "labelText": "what is the frequency?",
+                          "hintText": "e.g Once in a month",
+                          "id": "frequency_mhm_session",
+                          "type": "text"
+                         },
+                         {
+                          "labelText": "When was it last conducted?",
+                          "hintText": "e.g Once in a month",
+                          "id": "mhm_session_last_conducted",
+                          "type": "date_picker"
+                         }
+                      ]
+    
+    
+                    }
+                    
+                    
+                  },
+                  {
+                    "labelText": "Do you observe more number of absenteeism in adult girls due to monthly period problems?",
+                    "hintText": "Select type",
+                    "id": "no_absenteeism",
+                    "type": "radio",
+                    "options": ["Yes","No"],
+                    "validation": {
+                      "required": true
+                    }
+                    
+                    
+                  },
+                  {
+                    "labelText": "How openly/ freely do girls approach teachers with their menstrual problems or any girl’s issue?",
+                    "hintText": "Select type",
+                    "id": "freely_approach_teachers",
+                    "type": "radio",
+                    "options": ["Quite frequently","Rarely","Never"],
+                    "validation": {
+                      "required": true
+                    }
+                    
+                    
+                  },
+                 
+                  {
+                    "labelText": "Do girls parents interact with teachers or show any concern for their child coming to school during monthly periods?",
+                    "hintText": "Select type",
+                    "id": "parent_interact",
+                    "type": "radio",
+                    "options": ["Yes","No"],
+                    "validation": {
+                      "required": true
+                    }
+                    
+                    
+                  },
+                  {
+                    "labelText": "Is there any menstrual first aid kit for girls experiencing menstrual pain in the school?",
+                    "hintText": "Select type",
+                    "id": "menstrual_kit",
+                    "type": "radio",
+                    "options": ["Yes","No"],
+                    "validation": {
+                      "required": true
+                    }
+                    
+                    
+                  },
+                  {
+                    "labelText": "Does the girl’s toilet and changing room display the menstrual hygiene management messages and poster?",
+                    "hintText": "Select type",
+                    "id": "menstrual_poster",
+                    "type": "radio",
+                    "options": ["Yes","No"],
+                    "validation": {
+                      "required": true
+                    }
+                   }
+          
+        ]
+        
+        },
+
+
+
+        {
+          "title": "Digital Learning & Educational Programs",
+          "subtitle":"Water Related Information",
+          "fields": [
+            {
+              "labelText": "Is your school ICT (Information Communication &Technology) enabled",
+              "hintText": "Select type",
+              "id": "ict_enabled",
+              "type": "radio",
+              "options": ["Yes","No"],
+              "validation": {
+                "required": true
+              }
+             },
+             {
+              "labelText": "How many times per year do teachers from your school receive professional development trainings?",
+              "hintText": "Enter number",
+              "id": "no_training_inyear",
+              "type": "number"
+            },
+            {
+              "labelText": "What kind of Internet facility is available in your school?",
+              "hintText": "Select type",
+              "id": "internet_facility",
+              "type": "radio",
+              "options": ["Mobile Network","Wi-Fi", "Broadband","Dongle","No Internet"],
+              "validation": {
+                "required": true
+              }
+             },
+             
+            
+            {
+              "labelText": "How many of the below types of devices, in working condition, does your school have?",
+              "hintText": "Specify type",
+              "id": "",
+              "type": "section"
+            },
+            {
+              "labelText": "Total number of desktop?",
+              "hintText": "e.g: 4",
+              "id": "no_desktop",
+              "type": "number"
+             },
+             {
+              "labelText": "Number of working desktop?",
+              "hintText": "e.g 3",
+              "id": "no_working_desktop",
+              "type": "number"
+             },
+             {
+              "labelText": "Total number of Laptops?",
+              "hintText": "e.g 3",
+              "id": "no_laptops",
+              "type": "number"
+             },
+             {
+              "labelText": "Number of working Laptops?",
+              "hintText": "e.g 3",
+              "id": "no_working_laptops",
+              "type": "number"
+             },
+             {
+              "labelText": "Total number of tablets?",
+              "hintText": "e.g 3",
+              "id": "no_tablets",
+              "type": "number"
+             },
+             {
+              "labelText": "Number of working tablets?",
+              "hintText": "e.g 3",
+              "id": "no_working_tablets",
+              "type": "number"
+             },
+           
+             {
+              "labelText": "Total number of Projectors?",
+              "hintText": "e.g 3",
+              "id": "no_projectors",
+              "type": "number"
+             },
+             {
+              "labelText": "Number of working projectors?",
+              "hintText": "e.g 3",
+              "id": "no_working_projetors",
+              "type": "number"
+             },
+             {
+              "labelText": "Total number of TV/LED?",
+              "hintText": "e.g 3",
+              "id": "no_tv_led",
+              "type": "number"
+             },
+             {
+              "labelText": "Number of working TV/LED?",
+              "hintText": "e.g 3",
+              "id": "no_working_tv_led",
+              "type": "number"
+             },
+             {
+              "labelText": "Total number of Smart TV/Android TV?",
+              "hintText": "e.g 3",
+              "id": "no_tv_smart",
+              "type": "number"
+             },
+             {
+              "labelText": "Number of working Smart TV/Android TV",
+              "hintText": "e.g 3",
+              "id": "no_working_tv_smart",
+              "type": "number"
+             },
+             {
+              "labelText": "Are there teachers at your school who use technology to prepare their lessons (i.e. research the topic online, finding resources to share in class, etc)?",
+              "hintText": "Select type",
+              "id": "teacher_use_tech",
+              "type": "radio_with_other",
+              "options": ["Yes","No"],
+              "validation": {
+                "required": true
+              },
+
+              "otherOption": {
+
+                "labelText": "",
+                "hintText": "Specify type",
+                "id": "",
+                "type": "section",
+                
+                "fields": [
+                 
+                  {
+                    "labelText": "How many teacher use technology to prepare their lessons?",
+                    "hintText": "e.g 2",
+                    "id": "no_teacher_tech",
+                    "type": "numeric"
+                   },
+                   {
+                    "labelText": "How often",
+                    "hintText": "Select type",
+                    "id": "often_teacher_use_tech",
+                    "type": "radio",
+                    "options": ["Every day or almost everyday"," At least once per week","Less than once per week","Once per month or less"],
+                    "validation": {
+                      "required": true
+                    }
+                    
+                    
+                  }
+                ]
+
+
+              }
+              
+              
+            },
+
+            {
+              "labelText": "Are there teachers at your school who use technology to deliver their lessons (i.e. using a projector to present slides, showing a video, etc)?",
+              "hintText": "Select type",
+              "id": "teacher_use_tech_deliver",
+              "type": "radio_with_other",
+              "options": ["Yes","No"],
+              "validation": {
+                "required": true
+              },
+
+              "otherOption": {
+
+                "labelText": "",
+                "hintText": "Specify type",
+                "id": "",
+                "type": "section",
+                
+                "fields": [
+                 
+                  {
+                    "labelText": "How many teacher use technology to deliver their lessons?",
+                    "hintText": "e.g 2",
+                    "id": "no_teacher_tech_deliver",
+                    "type": "numeric"
+                   },
+                   {
+                    "labelText": "How often do they use it?",
+                    "hintText": "Select type",
+                    "id": "often_use_tech_deliver",
+                    "type": "radio",
+                    "options": ["Every day or almost everyday"," At least once per week","Less than once per week","Once per month or less"],
+                    "validation": {
+                      "required": true
+                    }
+                    
+                    
+                  }
+                ]
+
+
+              }
+              
+              
+            },
+            {
+              "labelText": "How many teachers are Microsoft Office friendly in your school?",
+              "hintText": "e.g 2",
+              "id": "ms_office_friendly_teachers",
+              "type": "number"
+             },
+             {
+              "labelText": "Do you have an inverter for power supply back in the school?",
+              "hintText": "Select type",
+              "id": "inverter_supply",
+              "type": "radio",
+              "options": ["Yes","No"],
+              "validation": {
+                "required": true
+              }
+             },
+             {
+              "labelText": "Is your school equipped with science laboratory for all standards?",
+              "hintText": "Select type",
+              "id": "science_lab",
+              "type": "radio",
+              "options": ["Yes","No"],
+              "validation": {
+                "required": true
+              }
+             },
+             {
+              "labelText": "Is the school equipped with library and sufficient books for all the standards?",
+              "hintText": "Select type",
+              "id": "library_lab",
+              "type": "radio",
+              "options": ["Yes","No"],
+              "validation": {
+                "required": true
+              }
+             },
+             {
+              "labelText": "Is there storage cupboards in the school?",
+              "hintText": "Select type",
+              "id": "storage_cupboards",
+              "type": "radio_with_other",
+              "options": ["Yes","No"],
+              "validation": {
+                "required": true
+              },
+
+              "otherOption": {
+
+                "labelText": "",
+                "hintText": "Specify type",
+                "id": "",
+                "type": "section",
+                
+                "fields": [
+             {
+              "labelText": "Total Number of storage cupboards in the school",
+              "hintText": "e.g 2",
+              "id": "no_storage_cupboards",
+              "type": "numeric"
+             },
+             {
+              "labelText": "Type of storage cupboard",
+              "hintText": "Select type",
+              "id": "storage_type_material",
+              "type": "radio",
+              "options": ["Metal", "Wooden", "Other"],
+              "validation": {
+                "required": true
+              },
+              "otherOption": {
+                "id": "storage_type_material_other",
+                "labelText": "Please specify"
+              }
+            }
+            
+            ]}},
+            {
+              "labelText": "Total number of computer tables in the school",
+              "hintText": "e.g 2",
+              "id": "computer_tables",
+              "type": "number"
+             },
+            {
+              "labelText": "Is there benches in the school?",
+              "hintText": "Select type",
+              "id": "benches",
+              "type": "radio_with_other",
+              "options": ["Yes","No"],
+              "validation": {
+                "required": true
+              },
+
+              "otherOption": {
+
+                "labelText": "",
+                "hintText": "Specify type",
+                "id": "",
+                "type": "section",
+                
+                "fields": [
+             {
+              "labelText": "Total number of benches available at school",
+              "hintText": "e.g 2",
+              "id": "no_storage_cupboards",
+              "type": "numeric"
+             },
+             {
+              "labelText": "Type of benches available at school",
+              "hintText": "Select type",
+              "id": "benches_type_material",
+              "type": "radio",
+              "options": ["Metal","Wooden","Other"],
+              "validation": {
+                "required": true
+              },
+              "otherOption": {
+                "id": "benches_type_material_other",
+                "labelText": "Please specify"
+              }
+             }
+            ]}}
+
+             
+          ]
+          }
+
+
+  ]
+}

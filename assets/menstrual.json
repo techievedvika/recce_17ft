@@ -1,0 +1,726 @@
+{
+    "formDetails": {
+      "formName": "ESF School Baseline: Menstrual Hygiene Facility for school Girls & Teachers"
+    },
+    "sections": [
+      {
+        "title": "Menstrual Hygiene Facility",
+        "subtitle":"",
+        "fields": [
+          
+          {
+            "labelText": "Enter UDISE Code",
+            "id": "udise",
+            "hintText": "UDISE Code",
+            "type": "udise",
+           
+            "fetchSchoolNamesApi": true
+          },
+        
+            
+            {
+            "labelText": "Does the School have separate toilets for girls?",
+            "hintText": "Select type",
+            "id": "separate_toilets_girls",
+            "type": "radio_with_other",
+            "options": ["Yes", "No"],
+            "validation": {
+              "required": true
+            },
+            
+            "otherOption": {
+              "labelText": "",
+              "hintText": "Specify type",
+              "id": "",
+              "type": "section",
+            
+              
+              "fields": [
+               
+                {
+                  "labelText": "Availability of water inside the girl’s toilet?",
+                  "hintText": "Select type",
+                  "id": "water_inside_toilet",
+                  "type": "radio",
+                  "options": ["Yes","No"],
+                  "validation": {
+                    "required": true
+                  }
+                  
+                  
+                },
+                {
+                  "labelText": "Does girl’s toilet have handwash facility with soap available inside the toilet?",
+                  "hintText": "Select type",
+                  "id": "handwash_facility",
+                  "type": "radio_with_other",
+                  "options": ["Yes","No"],
+                  "validation": {
+                    "required": true
+                  },
+                  "otherOption": {
+                    "labelText": "",
+                    "hintText": "Specify type",
+                    "id": "",
+                    "type": "section",
+                    
+                    "fields": [
+                     
+                      {
+                        "labelText": "Availability of water?",
+                        "hintText": "Select type",
+                        "id": "water_availability",
+                        "type": "radio",
+                        "options": ["Yes","No"],
+                        "validation": {
+                          "required": true
+                        }
+                        
+                        
+                      },
+                      {
+                        "labelText": "Availability of soap?",
+                        "hintText": "Select type",
+                        "id": "soap_availability",
+                        "type": "radio",
+                        "options": ["Yes","No"],
+                        "validation": {
+                          "required": true
+                        }
+                        
+                        
+                      }
+                    ]
+                  }
+                  
+                  
+                },
+                {
+                  "labelText": "Is there a mirror installed in girl’s toilet?",
+                  "hintText": "Select type",
+                  "id": "mirror_installed",
+                  "type": "radio_with_other",
+                  "options": ["Yes","No"],
+                  "validation": {
+                    "required": true
+                  },
+                  "otherOption": {
+                    "labelText": "",
+                    "hintText": "",
+                    "id": "",
+                    "type": "section",
+                    
+                    "fields": [
+                     
+                      {
+                        "labelText": "Upload photos of girl's toilet mirror",
+                        "subtitle": "Upload photos of girl's toilet mirror",
+                        "type": "photo_picker",
+                        "id": "girls_toilet_mirror_photos",
+                        "options": {
+                          "maxPhotos": 5,
+                          "allowCamera": true,
+                          "allowGallery": false
+                        },
+                        "validation": {
+                          "required": true,
+                          "minPhotos": 1
+                        }
+                      }
+                    ]}
+
+                  
+                  
+                },
+                {
+                  "labelText": "Is there provision of dustbins with lid in each girl toilet?",
+                  "hintText": "Select type",
+                  "id": "dustbins_lid",
+                  "type": "radio_with_other",
+                  "options": ["Yes","No"],
+                  "validation": {
+                    "required": true
+                  },
+                  "otherOption": {
+                    "labelText": "",
+                    "hintText": "",
+                    "id": "",
+                    "type": "section",
+                    
+                    "fields": [
+                     
+                      {
+                        "labelText": "Upload photos of dustbin",
+                        "subtitle": "Upload photos of dustbin",
+                        "type": "photo_picker",
+                        "id": "dustbin_lid_photo",
+                        "options": {
+                          "maxPhotos": 5,
+                          "allowCamera": true,
+                          "allowGallery": false
+                        },
+                        "validation": {
+                          "required": true,
+                          "minPhotos": 1
+                        }
+                      }
+                    ]}
+                  
+                  
+                },
+                {
+                  "labelText": "Does girls toilet have proper latch?",
+                  "hintText": "Select type",
+                  "id": "proper_latch",
+                  "type": "radio_with_other",
+                  "options": ["Yes","No"],
+                  "validation": {
+                    "required": true
+                  },
+                  "otherOption": {
+                    "labelText": "",
+                    "hintText": "",
+                    "id": "",
+                    "type": "section",
+                    
+                    "fields": [
+                     
+                      {
+                        "labelText": "Upload photos of latch",
+                        "subtitle": "Upload photos of latch",
+                        "type": "photo_picker",
+                        "id": "latch_photo",
+                        "options": {
+                          "maxPhotos": 5,
+                          "allowCamera": true,
+                          "allowGallery": false
+                        },
+                        "validation": {
+                          "required": true,
+                          "minPhotos": 1
+                        }
+                      }
+                    ]}
+                  
+                  
+                },
+                {
+                  "labelText": "Does girls toilet have storage space for napkin?",
+                  "hintText": "Select type",
+                  "id": "storage_napkins",
+                  "type": "radio_with_other",
+                  "options": ["Yes","No"],
+                  "validation": {
+                    "required": true
+                  },
+                  "otherOption": {
+                    "labelText": "",
+                    "hintText": "",
+                    "id": "",
+                    "type": "section",
+                    
+                    "fields": [
+                     
+                      {
+                        "labelText": "Upload photos of storage space",
+                        "subtitle": "Upload photos of storage space",
+                        "type": "photo_picker",
+                        "id": "storage_space_photo",
+                        "options": {
+                          "maxPhotos": 5,
+                          "allowCamera": true,
+                          "allowGallery": false
+                        },
+                        "validation": {
+                          "required": true,
+                          "minPhotos": 1
+                        }
+                      }
+                    ]}
+                  
+                  
+                },
+                {
+                  "labelText": "Does girls toilet have hook for hanging cloth inside the girls toilet?",
+                  "hintText": "Select type",
+                  "id": "hook_hanging",
+                  "type": "radio_with_other",
+                  "options": ["Yes","No"],
+                  "validation": {
+                    "required": true
+                  },
+                  "otherOption": {
+                    "labelText": "",
+                    "hintText": "",
+                    "id": "",
+                    "type": "section",
+                    
+                    "fields": [
+                     
+                      {
+                        "labelText": "Upload photos of hook ",
+                        "subtitle": "Upload photos of hook",
+                        "type": "photo_picker",
+                        "id": "hook_photo",
+                        "options": {
+                          "maxPhotos": 5,
+                          "allowCamera": true,
+                          "allowGallery": false
+                        },
+                        "validation": {
+                          "required": true,
+                          "minPhotos": 1
+                        }
+                      }
+                    ]}
+                  
+                  
+                }
+                
+              ]}},
+            
+                {
+                  "labelText": "Does the school have changing room facility for girls?",
+                  "hintText": "Select type",
+                  "id": "changing_room",
+                  "type": "radio_with_other",
+                  "options": ["Yes","No"],
+                  "validation": {
+                    "required": true
+                  },
+  
+                  "otherOption": {
+  
+                    "labelText": "",
+                    "hintText": "Specify type",
+                    "id": "",
+                    "type": "section",
+                    
+                    "fields": [
+                     
+                      {
+                        "labelText": "Is there a mirror installed in girl’s changing room?",
+                        "hintText": "Select type",
+                        "id": "mirror_in_changingroom",
+                        "type": "radio",
+                        "options": ["Yes","No"],
+                        "validation": {
+                          "required": true
+                        }
+                        
+                        
+                      },
+                      {
+                        "labelText": "Upload photos of changing room mirror ",
+                        "subtitle": "Upload photos of changing room mirror",
+                        "type": "photo_picker",
+                        "id": "changing_room_mirror_photo",
+                        "options": {
+                          "maxPhotos": 5,
+                          "allowCamera": true,
+                          "allowGallery": false
+                        },
+                        "validation": {
+                          "required": true,
+                          "minPhotos": 1
+                        }
+                      }
+                    ]
+  
+  
+                  }
+                  
+                  
+                },
+                {
+                  "labelText":"What type of Sanitary aid are distributed at the schools?" ,
+                  "hintText": "Selct Grades",
+                  "id": "type_sanitary_aid",
+                  "label": "Sanitary aid distributed",
+                  "type": "checkbox",
+                  "options": [
+                    "Cloth Napkin", "Sanitary Napkin", "Menstrual Cups", "Not Applicable"
+                  ]
+                },
+                {
+                  "labelText": "Is the school currently having sanitary pad vending or storage facility?",
+                  "hintText": "Select type",
+                  "id": "sanitary_storage_facility",
+                  "type": "radio_with_other",
+                  "options": ["Yes","No"],
+                  "validation": {
+                    "required": true
+                  },
+                  "otherOption": {
+                    "labelText": "",
+                    "hintText": "",
+                    "id": "",
+                    "type": "section",
+                    
+                    "fields": [
+                     
+                      {
+                        "labelText": "Upload photos of sanitary pad vending or storage facility",
+                        "subtitle": "Upload photos of sanitary pad vending or storage facility",
+                        "type": "photo_picker",
+                        "id": "sanitary_vend_photo",
+                        "options": {
+                          "maxPhotos": 5,
+                          "allowCamera": true,
+                          "allowGallery": false
+                        },
+                        "validation": {
+                          "required": true,
+                          "minPhotos": 1
+                        }
+                      }
+                    ]}
+                  
+                  
+                },
+                {
+                  "labelText": "Does the school have incinerator machine for sanitary napkin disposal?",
+                  "hintText": "Select type",
+                  "id": "incinerator_machine",
+                  "type": "radio_with_other",
+                  "options": ["Yes","No"],
+                  "validation": {
+                    "required": true
+                  },
+  
+                  "otherOption": {
+  
+                    "labelText": "",
+                    "hintText": "Specify type",
+                    "id": "",
+                    "type": "section",
+                    
+                    "fields": [
+                     
+                      {
+                        "labelText": "Is the height suitable for all adolescent girls to operate?",
+                        "hintText": "Select type",
+                        "id": "height_suitable",
+                        "type": "radio",
+                        "options": ["Yes","No"],
+                        "validation": {
+                          "required": true
+                        }
+                        
+                        
+                      },
+                      {
+                        "labelText": "Upload photos of incinerator machine",
+                        "subtitle": "Upload photos of incinerator machine",
+                        "type": "photo_picker",
+                        "id": "incinerator_machine_photo",
+                        "options": {
+                          "maxPhotos": 5,
+                          "allowCamera": true,
+                          "allowGallery": false
+                        },
+                        "validation": {
+                          "required": true,
+                          "minPhotos": 1
+                        }
+                      }
+                    ]
+  
+  
+                  }
+                  
+                  
+                },
+                {
+                  "labelText": "Does the school stock the sanitary napkins on monthly basis??",
+                  "hintText": "Select type",
+                  "id": "stock_sanitary",
+                  "type": "radio",
+                  "options": ["Yes","No"],
+                  "validation": {
+                    "required": true
+                  }
+                  
+                  
+                },
+               
+                {
+                  "labelText": "How much quantity of sanitary napkins on an average are required in the school on monthly basis?",
+                  "hintText": "Enter the quantity",
+                  "id": "no_pads",
+                  "type": "text",
+                  "validation": {
+                    "required": true
+                  }
+
+                  
+                  
+                },
+                {
+                  "labelText": "Do you charge for sanitary napkins?",
+                  "hintText": "Select type",
+                  "id": "charge_napkings",
+                  "type": "radio_with_other",
+                  "options": ["Yes","No"],
+                  "validation": {
+                    "required": true
+                  },
+  
+                  "otherOption": {
+  
+                    "labelText": "",
+                    "hintText": "Specify type",
+                    "id": "",
+                    "type": "section",
+                    
+                    "fields": [
+                     
+                      {
+                        "labelText": "what is the price per napkin?",
+                        "hintText": "Enter price per napkin",
+                        "id": "price_napkin",
+                        "type": "numeric",
+                        "validation": {
+                          "required": true
+                        }
+                       
+                        
+                        
+                      }
+                    ]
+  
+  
+                  }
+                  
+                  
+                },
+                {
+                  "labelText": "Do you conduct Puberty and menstrual education for school children?",
+                  "hintText": "Select type",
+                  "id": "education_menstrual",
+                  "type": "radio_with_other",
+                  "options": ["Yes","No"],
+                  "validation": {
+                    "required": true
+                  },
+  
+                  "otherOption": {
+  
+                    "labelText": "",
+                    "hintText": "Specify type",
+                    "id": "",
+                    "type": "section",
+                    
+                    "fields": [
+                     
+                      {
+                        "labelText": "what is the frequency?",
+                        "hintText": "e.g Once in a month",
+                        "id": "frequency_education",
+                        "type": "text",
+                        "validation": {
+                          "required": true
+                        }
+                       
+                        
+                        
+                      }
+                    ]
+  
+  
+                  }
+                  
+                  
+                },
+                {
+                  "labelText": "Do you conduct separate menstrual management and hygiene sessions for girls?",
+                  "hintText": "Select type",
+                  "id": "separate_menstrual",
+                  "type": "radio_with_other",
+                  "options": ["Yes","No"],
+                  "validation": {
+                    "required": true
+                  },
+  
+                  "otherOption": {
+  
+                    "labelText": "",
+                    "hintText": "Specify type",
+                    "id": "",
+                    "type": "section",
+                    
+                    "fields": [
+                     
+                      {
+                        "labelText": "what is the frequency?",
+                        "hintText": "e.g Once in a month",
+                        "id": "frequency_separate_menstrual",
+                        "type": "text",
+                        "validation": {
+                          "required": true
+                        }
+                       }
+                    ]
+  
+  
+                  }
+                  
+                  
+                },
+                {
+                  "labelText": "Is there any capacity building and awareness session on MHM conducted for teachers?",
+                  "hintText": "Select type",
+                  "id": "mhm_session",
+                  "type": "radio_with_other",
+                  "options": ["Yes","No"],
+                  "validation": {
+                    "required": true
+                  },
+  
+                  "otherOption": {
+  
+                    "labelText": "",
+                    "hintText": "Specify type",
+                    "id": "",
+                    "type": "section",
+                    
+                    "fields": [
+                     
+                      {
+                        "labelText": "what is the frequency?",
+                        "hintText": "e.g Once in a month",
+                        "id": "frequency_mhm_session",
+                        "type": "text",
+                        "validation": {
+                          "required": true
+                        }
+                       },
+                       {
+                        "labelText": "When was it last conducted?",
+                        "hintText": "e.g Once in a month",
+                        "id": "mhm_session_last_conducted",
+                        "type": "date_picker"
+                       }
+                    ]
+  
+  
+                  }
+                  
+                  
+                },
+                {
+                  "labelText": "Do you observe more number of absenteeism in adult girls due to monthly period problems?",
+                  "hintText": "Select type",
+                  "id": "no_absenteeism",
+                  "type": "radio",
+                  "options": ["Yes","No"],
+                  "validation": {
+                    "required": true
+                  }
+                  
+                  
+                },
+                {
+                  "labelText": "How openly/ freely do girls approach teachers with their menstrual problems or any girl’s issue?",
+                  "hintText": "Select type",
+                  "id": "freely_approach_teachers",
+                  "type": "radio",
+                  "options": ["Quite frequently","Rarely","Never"],
+                  "validation": {
+                    "required": true
+                  }
+                  
+                  
+                },
+               
+                {
+                  "labelText": "Do girls parents interact with teachers or show any concern for their child coming to school during monthly periods?",
+                  "hintText": "Select type",
+                  "id": "parent_interact",
+                  "type": "radio",
+                  "options": ["Yes","No"],
+                  "validation": {
+                    "required": true
+                  }
+                  
+                  
+                },
+                {
+                  "labelText": "Is there any menstrual first aid kit for girls experiencing menstrual pain in the school?",
+                  "hintText": "Select type",
+                  "id": "menstrual_kit",
+                  "type": "radio_with_other",
+                  "options": ["Yes","No"],
+                  "validation": {
+                    "required": true
+                  },
+                  "otherOption": {
+                    "labelText": "",
+                    "hintText": "",
+                    "id": "",
+                    "type": "section",
+                    
+                    "fields": [
+                     
+                      {
+                        "labelText": "Upload photos of menstrual first aid kit",
+                        "subtitle": "Upload photos of menstrual first aid kit ",
+                        "type": "photo_picker",
+                        "id": "menstrual_kit_photo",
+                        "options": {
+                          "maxPhotos": 5,
+                          "allowCamera": true,
+                          "allowGallery": false
+                        },
+                        "validation": {
+                          "required": true,
+                          "minPhotos": 1
+                        }
+                      }
+                    ]}
+                  
+                  
+                },
+                {
+                  "labelText": "Does the girl’s toilet and changing room display the menstrual hygiene management messages and poster?",
+                  "hintText": "Select type",
+                  "id": "menstrual_poster",
+                  "type": "radio_with_other",
+                  "options": ["Yes","No"],
+                  "validation": {
+                    "required": true
+                  },
+                  "otherOption": {
+                    "labelText": "",
+                    "hintText": "",
+                    "id": "",
+                    "type": "section",
+                    
+                    "fields": [
+                     
+                      {
+                        "labelText": "Upload photos of menstrual hygiene management & posters",
+                        "subtitle": "Upload photos of menstrual hygiene management & posters",
+                        "type": "photo_picker",
+                        "id": "poster_photos",
+                        "options": {
+                          "maxPhotos": 5,
+                          "allowCamera": true,
+                          "allowGallery": false
+                        },
+                        "validation": {
+                          "required": true,
+                          "minPhotos": 1
+                        }
+                      }
+                    ]}
+                 }
+        
+      ]
+        }
+          
+ 
+  
+    ]
+  }
+  
