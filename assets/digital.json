@@ -1,0 +1,515 @@
+{
+  "formDetails": {
+    "formName": "ESF School Baseline: Digital Learning & Educational Programs"
+  },
+  "sections": [
+    {
+      "title": "Digital Learning & Educational Programs",
+      "subtitle": "",
+      "fields": [
+        {
+          "labelText": "Enter UDISE Code",
+          "id": "udise",
+          "hintText": "UDISE Code",
+          "type": "udise",
+          "fetchSchoolNamesApi": true
+        },
+        {
+          "labelText": "Is your school ICT (Information Communication &Technology) enabled",
+          "hintText": "Select type",
+          "id": "ict_enabled",
+          "type": "radio",
+          "validation": {
+            "required": true
+          },
+          "options": ["Yes", "No"]
+        },
+        {
+          "labelText": "How many times per year do teachers from your school receive professional development trainings?",
+          "hintText": "Enter number",
+          "id": "no_training_inyear",
+          "type": "number",
+          "validation": {
+            "required": true
+          }
+        },
+        {
+          "labelText": "What kind of Internet facility is available in your school?",
+          "hintText": "Select type",
+          "id": "internet_facility",
+          "type": "checkbox",
+          "options": [
+            "Mobile Network",
+            "Wi-Fi",
+            "Broadband",
+            "Dongle",
+            "No Internet"
+          ],
+          "validation": {
+            "required": true
+          }
+        },
+        {
+          "labelText": "How many of the below types of devices, in working condition, does your school have?",
+          "hintText": "Specify type",
+          "id": "",
+          "type": "section"
+        },
+        {
+          "labelText": "Total number of desktop?",
+          "hintText": "e.g: 4",
+          "id": "no_desktop",
+          "type": "number",
+          "validation": {
+            "required": true
+          }
+        },
+        {
+          "labelText": "Number of working desktop?",
+          "hintText": "e.g 3",
+          "id": "no_working_desktop",
+          "type": "number",
+          "validation": {
+            "required": true
+          }
+        },
+        {
+          "labelText": "Total number of Laptops?",
+          "hintText": "e.g 3",
+          "id": "no_laptops",
+          "type": "number",
+          "validation": {
+            "required": true
+          }
+        },
+        {
+          "labelText": "Number of working Laptops?",
+          "hintText": "e.g 3",
+          "id": "no_working_laptops",
+          "type": "number",
+          "validation": {
+            "required": true
+          }
+        },
+        {
+          "labelText": "Total number of tablets?",
+          "hintText": "e.g 3",
+          "id": "no_tablets",
+          "type": "number",
+          "validation": {
+            "required": true
+          }
+        },
+        {
+          "labelText": "Number of working tablets?",
+          "hintText": "e.g 3",
+          "id": "no_working_tablets",
+          "type": "number",
+          "validation": {
+            "required": true
+          }
+        },
+        {
+          "labelText": "Total number of Projectors?",
+          "hintText": "e.g 3",
+          "id": "no_projectors",
+          "type": "number",
+          "validation": {
+            "required": true
+          }
+        },
+        {
+          "labelText": "Number of working projectors?",
+          "hintText": "e.g 3",
+          "id": "no_working_projetors",
+          "type": "number",
+          "validation": {
+            "required": true
+          }
+        },
+        {
+          "labelText": "Total number of TV/LED?",
+          "hintText": "e.g 3",
+          "id": "no_tv_led",
+          "type": "number",
+          "validation": {
+            "required": true
+          }
+        },
+        {
+          "labelText": "Number of working TV/LED?",
+          "hintText": "e.g 3",
+          "id": "no_working_tv_led",
+          "type": "number",
+          "validation": {
+            "required": true
+          }
+        },
+        {
+          "labelText": "Total number of Smart TV/Android TV?",
+          "hintText": "e.g 3",
+          "id": "no_tv_smart",
+          "type": "number",
+          "validation": {
+            "required": true
+          }
+        },
+        {
+          "labelText": "Number of working Smart TV/Android TV",
+          "hintText": "e.g 3",
+          "id": "no_working_tv_smart",
+          "type": "number",
+          "validation": {
+            "required": true
+          }
+        },
+        {
+          "labelText": "Are there teachers at your school who use technology to prepare their lessons (i.e. research the topic online, finding resources to share in class, etc)?",
+          "hintText": "Select type",
+          "id": "teacher_use_tech",
+          "type": "radio_with_other",
+          "options": ["Yes", "No"],
+          "validation": {
+            "required": true
+          },
+          "otherOption": {
+            "labelText": "",
+            "hintText": "Specify type",
+            "id": "",
+            "type": "section",
+            "fields": [
+              {
+                "labelText": "How many teacher use technology to prepare their lessons?",
+                "hintText": "e.g 2",
+                "id": "no_teacher_tech",
+                "type": "numeric",
+                "validation": {
+                  "required": true
+                }
+              },
+              {
+                "labelText": "How often",
+                "hintText": "Select type",
+                "id": "often_teacher_use_tech",
+                "type": "radio",
+                "options": [
+                  "Every day or almost everyday",
+                  " At least once per week",
+                  "Less than once per week",
+                  "Once per month or less"
+                ],
+                "validation": {
+                  "required": true
+                }
+              }
+            ]
+          }
+        },
+        {
+          "labelText": "Are there teachers at your school who use technology to deliver their lessons (i.e. using a projector to present slides, showing a video, etc)?",
+          "hintText": "Select type",
+          "id": "teacher_use_tech_deliver",
+          "type": "radio_with_other",
+          "options": ["Yes", "No"],
+          "validation": {
+            "required": true
+          },
+          "otherOption": {
+            "labelText": "",
+            "hintText": "Specify type",
+            "id": "",
+            "type": "section",
+            "fields": [
+              {
+                "labelText": "How many teacher use technology to deliver their lessons?",
+                "hintText": "e.g 2",
+                "id": "no_teacher_tech_deliver",
+                "type": "numeric",
+                "validation": {
+                  "required": true
+                }
+              },
+              {
+                "labelText": "How often do they use it?",
+                "hintText": "Select type",
+                "id": "often_use_tech_deliver",
+                "type": "radio",
+                "options": [
+                  "Every day or almost everyday",
+                  " At least once per week",
+                  "Less than once per week",
+                  "Once per month or less"
+                ],
+                "validation": {
+                  "required": true
+                }
+              }
+            ]
+          }
+        },
+        {
+          "labelText": "How many teachers are Microsoft Office friendly in your school?",
+          "hintText": "e.g 2",
+          "id": "ms_office_friendly_teachers",
+          "type": "number",
+          "validation": {
+            "required": true
+          }
+        },
+        {
+          "labelText": "Do you have an inverter for power supply back in the school?",
+          "hintText": "Select type",
+          "id": "inverter_supply",
+          "type": "radio_with_other",
+          "options": ["Yes", "No"],
+          "validation": {
+            "required": true
+          },
+          "otherOption": {
+            "labelText": "",
+            "hintText": "",
+            "id": "",
+            "type": "section",
+            "fields": [
+              {
+                "labelText": "Upload photos of power supply backup",
+                "subtitle": "Upload photos of power supply backup ",
+                "type": "photo_picker",
+                "id": "power_supply_backup_photo",
+                "options": {
+                  "maxPhotos": 5,
+                  "allowCamera": true,
+                  "allowGallery": false
+                },
+                "validation": {
+                  "required": true,
+                  "minPhotos": 1
+                }
+              }
+            ]
+          }
+        },
+        {
+          "labelText": "Is your school equipped with science laboratory for all standards?",
+          "hintText": "Select type",
+          "id": "science_lab",
+          "type": "radio_with_other",
+          "options": ["Yes", "No"],
+          "validation": {
+            "required": true
+          },
+          "otherOption": {
+            "labelText": "",
+            "hintText": "",
+            "id": "",
+            "type": "section",
+            "fields": [
+              {
+                "labelText": "Upload photos of science lab",
+                "subtitle": "Upload photos of science lab ",
+                "type": "photo_picker",
+                "id": "science_lab_photo",
+                "options": {
+                  "maxPhotos": 5,
+                  "allowCamera": true,
+                  "allowGallery": false
+                },
+                "validation": {
+                  "required": true,
+                  "minPhotos": 1
+                }
+              }
+            ]
+          }
+        },
+        {
+          "labelText": "Is the school equipped with library and sufficient books for all the standards?",
+          "hintText": "Select type",
+          "id": "library_lab",
+          "type": "radio_with_other",
+          "options": ["Yes", "No"],
+          "validation": {
+            "required": true
+          },
+          "otherOption": {
+            "labelText": "",
+            "hintText": "",
+            "id": "",
+            "type": "section",
+            "fields": [
+              {
+                "labelText": "Upload photos of library and books",
+                "subtitle": "Upload photos of library and books",
+                "type": "photo_picker",
+                "id": "library_books_photo",
+                "options": {
+                  "maxPhotos": 5,
+                  "allowCamera": true,
+                  "allowGallery": false
+                },
+                "validation": {
+                  "required": true,
+                  "minPhotos": 1
+                }
+              }
+            ]
+          }
+        },
+        {
+          "labelText": "Is there storage cupboards in the school?",
+          "hintText": "Select type",
+          "id": "storage_cupboards",
+          "type": "radio_with_other",
+          "options": ["Yes", "No"],
+          "validation": {
+            "required": true
+          },
+          "otherOption": {
+            "labelText": "",
+            "hintText": "Specify type",
+            "id": "",
+            "type": "section",
+            "fields": [
+              {
+                "labelText": "Total Number of storage cupboards in the school",
+                "hintText": "e.g 2",
+                "id": "no_storage_cupboards",
+                "type": "numeric",
+                "validation": {
+                  "required": true
+                }
+              },
+              {
+                "labelText": "Type of storage cupboard",
+                "hintText": "Select type",
+                "id": "storage_type_material",
+                "type": "radio",
+                "options": ["Metal", "Wooden", "Other"],
+                "validation": {
+                  "required": true
+                },
+                "otherOption": {
+                  "id": "storage_type_material_other",
+                  "labelText": "Please specify"
+                }
+              },
+              {
+                "labelText": "Upload photos of storage cupboards",
+                "subtitle": "Upload photos of storage cupboards",
+                "type": "photo_picker",
+                "id": "storage_cupboards_photos",
+                "options": {
+                  "maxPhotos": 5,
+                  "allowCamera": true,
+                  "allowGallery": false
+                },
+                "validation": {
+                  "required": true,
+                  "minPhotos": 1
+                }
+              }
+            ]
+          }
+        },
+        {
+          "labelText": "Is there computer tables in the school?",
+          "hintText": "Select type",
+          "id": "computer_tables",
+          "type": "radio_with_other",
+          "options": ["Yes", "No"],
+          "validation": {
+            "required": true
+          },
+          "otherOption": {
+            "labelText": "",
+            "hintText": "Specify type",
+            "id": "",
+            "type": "section",
+            "fields": [
+              {
+                "labelText": "Total Number of computer tables in the school",
+                "hintText": "e.g 2",
+                "id": "no_computer_tables",
+                "type": "numeric",
+                "validation": {
+                  "required": true
+                }
+              },
+              {
+                "labelText": "Upload photos of computer tables",
+                "subtitle": "Upload photos of computer tables",
+                "type": "photo_picker",
+                "id": "computer_tables_photos",
+                "options": {
+                  "maxPhotos": 5,
+                  "allowCamera": true,
+                  "allowGallery": false
+                },
+                "validation": {
+                  "required": true,
+                  "minPhotos": 1
+                }
+              }
+            ]
+          }
+        },
+        {
+          "labelText": "Is there benches in the school?",
+          "hintText": "Select type",
+          "id": "benches",
+          "type": "radio_with_other",
+          "options": ["Yes", "No"],
+          "validation": {
+            "required": true
+          },
+          "otherOption": {
+            "labelText": "",
+            "hintText": "Specify type",
+            "id": "",
+            "type": "section",
+            "fields": [
+              {
+                "labelText": "Total number of benches available at school",
+                "hintText": "e.g 2",
+                "id": "no_benches",
+                "type": "numeric",
+                "validation": {
+                  "required": true
+                }
+              },
+              {
+                "labelText": "Type of benches available at school",
+                "hintText": "Select type",
+                "id": "benches_type_material",
+                "type": "radio",
+                "options": ["Metal", "Wooden", "Other"],
+                "validation": {
+                  "required": true
+                },
+                "otherOption": {
+                  "id": "benches_type_material_other",
+                  "labelText": "Please specify"
+                }
+              },
+              {
+                "labelText": "Upload photos of school benches",
+                "subtitle": "Upload photos of school benches",
+                "type": "photo_picker",
+                "id": "school_benches_photos",
+                "options": {
+                  "maxPhotos": 5,
+                  "allowCamera": true,
+                  "allowGallery": false
+                },
+                "validation": {
+                  "required": true,
+                  "minPhotos": 1
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

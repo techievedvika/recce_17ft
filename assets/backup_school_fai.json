@@ -1,0 +1,1050 @@
+{
+    "formDetails": {
+      "formName": "ESF School Baseline: School Facilities Information"
+    },
+    "sections": [
+      {
+        "title": "Water & Sanitary related Information",
+        "subtitle": "General Information",
+        "fields": [
+          {
+            "labelText": "UDISE Code",
+            "id": "udise",
+            "hintText": "UDISE Code",
+            "type": "udise",
+            "fetchSchoolNamesApi": true
+          },
+          {
+            "labelText": "What is the main Source of water",
+            "hintText": "Selct Source ",
+            "id": "source_water",
+            "label": "Source of water",
+            "type": "dropdown",
+            "options": [
+              "Municipality Connection",
+              "Well",
+              "Hand Pump",
+              "Private",
+              "Other"
+            ],
+            "otherOption": {
+              "id": "source_water_other_option",
+              "labelText": "Please specify"
+            }
+          },
+          {
+            "labelText": "Timing of water supply",
+            "id": "water_supply",
+            "hintText": "8:00 AM to 2:00 PM",
+            "type": "time_picker",
+            "validation": {
+              "required": true
+            },
+            "start_id": "water_supply_start_time",
+            "end_id": "water_supply_end_time",
+            "start_time_label": "Start Time",
+            "end_time_label": "End Time"
+          },
+          {
+            "labelText": "Type of water storage tank",
+            "hintText": "Select type",
+            "id": "type_tank",
+            "label": "Source of water",
+            "type": "tank_and_number",
+            "options": ["Plastic Tank", "Cement Tank", "Stone Tank"],
+            "cement_tank": {
+              "labelText": "Upload your cement tank photos",
+              "subtitle": "Upload your cement tank photos",
+              "type": "photo_picker",
+              "id": "cement_tank",
+              "options": {
+                "maxPhotos": 5,
+                "allowCamera": true,
+                "allowGallery": true
+              },
+              "validation": {
+                "required": true,
+                "minPhotos": 1
+              }
+            },
+            "plastic_tank": {
+              "labelText": "Upload your plastic tank photos",
+              "subtitle": "Upload your plastic tank photos",
+              "type": "photo_picker",
+              "id": "plastic_tank",
+              "options": {
+                "maxPhotos": 5,
+                "allowCamera": true,
+                "allowGallery": true
+              },
+              "validation": {
+                "required": true,
+                "minPhotos": 1
+              }
+            },
+            "stone_tank": {
+              "labelText": "Upload your stone tank photos",
+              "subtitle": "Upload your stone tank photos",
+              "type": "photo_picker",
+              "id": "stone_tank",
+              "options": {
+                "maxPhotos": 5,
+                "allowCamera": true,
+                "allowGallery": true
+              },
+              "validation": {
+                "required": true,
+                "minPhotos": 1
+              }
+            }
+          },
+          {
+            "labelText": "Total storage capacity of water tank (in Litres) ",
+            "id": "storage_capacity",
+            "hintText": "Enter capacity",
+            "type": "number",
+            "validation": {
+              "required": true
+            }
+          },
+  
+          {
+            "labelText": "How is the drinking water stored in the school?",
+            "id": "drinking_water",
+            "hintText": "e.g: Plastic bottles etc ",
+            "type": "text",
+            "validation": {
+              "required": true
+            }
+          },
+  
+          {
+            "labelText": "Is there a water purification system?",
+            "hintText": "Select type",
+            "id": "water_purification_system",
+            "type": "radio_with_other",
+            "options": ["Yes", "No"],
+            "validation": {
+              "required": true
+            },
+            "otherOption": {
+              "labelText": "",
+              "hintText": "",
+              "id": "",
+              "type": "section",
+              "fields": [
+                {
+                  "labelText": "What kind of water purification system is there?",
+                  "hintText": "Enter the purification system",
+                  "id": "water_purification_system_kind",
+                  "type": "text",
+                  "validation": {
+                    "required": true
+                  }
+                },
+                {
+                  "labelText": "Upload your water purification photos",
+                  "subtitle": "Upload your water purification photos",
+                  "type": "photo_picker",
+                  "id": "water_purification_system",
+                  "options": {
+                    "maxPhotos": 5,
+                    "allowCamera": true,
+                    "allowGallery": true
+                  },
+                  "validation": {
+                    "required": true,
+                    "minPhotos": 1
+                  }
+                }
+              ]
+            }
+          },
+  
+          {
+            "labelText": "Are water quality inspections done?",
+            "hintText": "Select type",
+            "id": "water_inspection",
+            "type": "radio_with_other",
+            "options": ["Yes", "No"],
+            "validation": {
+              "required": true
+            },
+            "otherOption": {
+              "labelText": "",
+              "hintText": "",
+              "id": "",
+              "type": "section",
+              "fields": [
+                {
+                  "labelText": "Frequency of water quality inspections?",
+                  "hintText": "Enter the frequency",
+                  "id": "frequency_water_inspection",
+                  "type": "text",
+                  "validation": {
+                    "required": true
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "labelText": "Do children complain of the disorders of water? (Stomach ache, gout, fever, etc.) ",
+            "hintText": "Select type",
+            "id": "disorders_water",
+            "type": "radio",
+            "options": ["Yes", "No"],
+            "validation": {
+              "required": true
+            }
+          },
+          {
+            "labelText": "Is Rainwater Harvesting Facility available?",
+            "hintText": "Select type",
+            "id": "water_harvesting",
+            "type": "radio_with_other",
+            "options": ["Yes", "No"],
+  
+            "validation": {
+              "required": true
+            },
+            "otherOption": {
+              "labelText": "",
+              "hintText": "",
+              "id": "",
+              "type": "section",
+              "fields": [
+                {
+                  "labelText": "How much liter of water is conserved?",
+                  "hintText": "Enter conserverd water quantity",
+                  "id": "conserved_water",
+                  "type": "numeric",
+                  "validation": {
+                    "required": true
+                  }
+                },
+                {
+                  "labelText": "Upload rainwater harvesting photos",
+                  "subtitle": "Upload rainwater harvesting photos",
+                  "type": "photo_picker",
+                  "id": "rainwater_harvesting",
+                  "options": {
+                    "maxPhotos": 5,
+                    "allowCamera": true,
+                    "allowGallery": true
+                  },
+                  "validation": {
+                    "required": true,
+                    "minPhotos": 1
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "labelText": "What is the total roof area of the school?",
+            "hintText": "Enter the area",
+            "id": "roof_area",
+            "type": "number_with_suffix",
+            "suffixText": ".sq metres",
+            "validation": {
+              "required": true,
+              "pattern": "^[0-9]+$",
+              "errorMessage": "Please enter a valid number"
+            }
+          },
+          {
+            "labelText": "Does the school have bore well?",
+            "hintText": "Select type",
+            "id": "bore_well",
+            "type": "radio_with_other",
+            "options": ["Yes", "No"],
+  
+            "validation": {
+              "required": true
+            },
+            "otherOption": {
+              "labelText": "",
+              "hintText": "",
+              "id": "",
+              "type": "section",
+              "fields": [
+                {
+                  "labelText": "Is the bore well water used?",
+                  "id": "borewell_used",
+                  "type": "radio",
+                  "options": ["Yes", "No"],
+                  "validation": {
+                    "required": true
+                  }
+                },
+                {
+                  "labelText": "Upload borewell photos",
+                  "subtitle": "Upload borewell photos",
+                  "type": "photo_picker",
+                  "id": "borewell",
+                  "options": {
+                    "maxPhotos": 5,
+                    "allowCamera": true,
+                    "allowGallery": true
+                  },
+                  "validation": {
+                    "required": true,
+                    "minPhotos": 1
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "labelText": "Does the water get stagnant around the school in rainy season?",
+            "hintText": "Select type",
+            "id": "stagnant_water",
+            "type": "radio_with_other",
+            "options": ["Yes", "No"],
+            "validation": {
+              "required": true
+            },
+            "otherOption": {
+              "labelText": "",
+              "hintText": "",
+              "type": "section",
+              "id": "",
+              "fields": [
+                {
+                  "labelText": "Do children face problem due to this?",
+                  "id": "stagnant_water_problem",
+                  "type": "radio",
+                  "options": ["Yes", "No"],
+                  "validation": {
+                    "required": true
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "labelText": "Do leakages happen in school in the rainy season? ",
+            "hintText": "Select type",
+            "id": "leakages",
+            "type": "radio",
+            "options": ["Yes", "No"],
+            "validation": {
+              "required": true
+            }
+          },
+  
+          {
+            "labelText": "Is there toilet system in the school?",
+            "hintText": "Select type",
+            "id": "toilet_system",
+            "type": "radio_with_other",
+            "options": ["Yes", "No"],
+            "validation": {
+              "required": true
+            },
+            "otherOption": {
+              "labelText": "",
+              "hintText": "",
+              "type": "section",
+              "id": "",
+              "fields": [
+                {
+                  "labelText": "Do the students use toilets?",
+                  "hintText": "Select type",
+                  "id": "use_toilets",
+                  "type": "radio",
+                  "options": ["Yes", "No"],
+                  "validation": {
+                    "required": true
+                  }
+                },
+                {
+                  "labelText": "Are there separate toilets for boys and girls?",
+                  "hintText": "Select type",
+                  "id": "separate_toilets",
+                  "type": "radio_with_other",
+                  "options": ["Yes", "No"],
+                  "validation": {
+                    "required": true
+                  },
+                  "otherOption": {
+                    "labelText": "Mention number of toilets & urinals",
+                    "hintText": "",
+                    "id": "",
+                    "type": "section",
+  
+                    "fields": [
+                      {
+                        "labelText": "Toilet Boys:",
+                        "hintText": "Enter number",
+                        "id": "toilet_boys",
+                        "type": "numeric",
+                        "validation": {
+                          "required": true
+                        }
+                      },
+                      {
+                        "labelText": "Urinals Boys:",
+                        "hintText": "Enter number",
+                        "id": "urinals_boys",
+                        "type": "numeric",
+                        "validation": {
+                          "required": true
+                        }
+                      },
+                      {
+                        "labelText": "Upload photos of boys's toilets and urinals",
+                        "subtitle": "Upload photos of boys's toilets and urinals",
+                        "type": "photo_picker",
+                        "id": "toilet_urinal_boys",
+                        "options": {
+                          "maxPhotos": 5,
+                          "allowCamera": true,
+                          "allowGallery": true
+                        },
+                        "validation": {
+                          "required": true,
+                          "minPhotos": 1
+                        }
+                      },
+                      {
+                        "labelText": "Toilet Girls:",
+                        "hintText": "Enter number",
+                        "id": "toilet_girls",
+                        "type": "numeric",
+                        "validation": {
+                          "required": true
+                        }
+                      },
+                      {
+                        "labelText": "Urinals Girls:",
+                        "hintText": "Enter number",
+                        "id": "urinals_girls",
+                        "type": "numeric",
+                        "validation": {
+                          "required": true
+                        }
+                      },
+                      {
+                        "labelText": "Upload photos of boys's toilets and urinals",
+                        "subtitle": "Upload photos of boys's toilets and urinals",
+                        "type": "photo_picker",
+                        "id": "toilet_urinal_girls",
+                        "options": {
+                          "maxPhotos": 5,
+                          "allowCamera": true,
+                          "allowGallery": true
+                        },
+                        "validation": {
+                          "required": true,
+                          "minPhotos": 1
+                        }
+                      },
+                      {
+                        "labelText": "Is there a proper mechanism for handicapped children to go to the sanitary latrine?",
+                        "hintText": "Select type",
+                        "id": "handicapped_mechanism",
+                        "type": "radio",
+                        "options": ["Yes", "No"],
+                        "validation": {
+                          "required": true
+                        }
+                      },
+                      {
+                        "labelText": "Is there a water system in toilet?",
+                        "hintText": "Select type",
+                        "id": "water_system_in_toilet",
+                        "type": "radio_with_other",
+                        "options": ["Yes", "No"],
+                        "validation": {
+                          "required": true
+                        },
+  
+                        "otherOption": {
+                          "labelText": "",
+                          "hintText": "",
+                          "id": "",
+                          "type": "section",
+  
+                          "fields": [
+                            {
+                              "labelText": "Enter type of water system:",
+                              "hintText": "Enter water system type",
+                              "id": "type_water_system",
+                              "type": "text",
+                              "validation": {
+                                "required": true
+                              }
+                            },
+                            {
+                              "labelText": "Upload photos of water system",
+                              "subtitle": "Upload photos of water system",
+                              "type": "photo_picker",
+                              "id": "water_system_photo",
+                              "options": {
+                                "maxPhotos": 5,
+                                "allowCamera": true,
+                                "allowGallery": true
+                              },
+                              "validation": {
+                                "required": true,
+                                "minPhotos": 1
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "labelText": "Is there a proper ventilation system in the toilet?",
+                        "hintText": "Select type",
+                        "id": "ventilation_system",
+                        "type": "radio",
+                        "options": ["Yes", "No"],
+                        "validation": {
+                          "required": true
+                        }
+                      },
+                      {
+                        "labelText": "Does toilet have tiles?",
+                        "hintText": "Select type",
+                        "id": "tiles",
+                        "type": "radio",
+                        "options": ["Yes", "No"],
+                        "validation": {
+                          "required": true
+                        }
+                      },
+                      {
+                        "labelText": "Are handwash basins available in the toilet?",
+                        "hintText": "Select type",
+                        "id": "handwash_basins",
+                        "type": "radio_with_other",
+                        "options": ["Yes", "No"],
+                        "validation": {
+                          "required": true
+                        },
+  
+                        "otherOption": {
+                          "labelText": "",
+                          "hintText": "",
+                          "id": "",
+                          "type": "section",
+  
+                          "fields": [
+                            {
+                              "labelText": "Number of handwash basins",
+                              "hintText": "Enter number",
+                              "id": "no_handwash_basin",
+                              "type": "number"
+                            },
+                            {
+                              "labelText": "Upload photos of handwash basins",
+                              "subtitle": "Upload photos of handwash basins",
+                              "type": "photo_picker",
+                              "id": "handwash_basin_photos",
+                              "options": {
+                                "maxPhotos": 5,
+                                "allowCamera": true,
+                                "allowGallery": true
+                              },
+                              "validation": {
+                                "required": true,
+                                "minPhotos": 1
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "labelText": "Is group handwashing facility with soap available at schools?",
+                        "hintText": "Select type",
+                        "id": "group_handwash_facility",
+                        "type": "radio_with_other",
+                        "options": ["Yes", "No"],
+                        "validation": {
+                          "required": true
+                        },
+  
+                        "otherOption": {
+                          "labelText": "",
+                          "hintText": "",
+                          "id": "",
+                          "type": "section",
+  
+                          "fields": [
+                            {
+                              "labelText": "Number of Taps",
+                              "hintText": "Enter number",
+                              "id": "no_taps",
+                              "type": "numeric",
+                              "validation": {
+                                "required": true
+                              }
+                            },
+                            {
+                              "labelText": "Upload photos of taps",
+                              "subtitle": "Upload photos of taps",
+                              "type": "photo_picker",
+                              "id": "taps_photos",
+                              "options": {
+                                "maxPhotos": 5,
+                                "allowCamera": true,
+                                "allowGallery": true
+                              },
+                              "validation": {
+                                "required": true,
+                                "minPhotos": 1
+                              }
+                            },
+                            {
+                              "labelText": "Number of soap trays/dispensers",
+                              "hintText": "Enter number",
+                              "id": "no_soap_dispensers",
+                              "type": "numeric",
+                              "validation": {
+                                "required": true
+                              }
+                            },
+                            {
+                              "labelText": "Upload photos of soap trays/dispensers",
+                              "subtitle": "Upload photos of soap trays/dispensers",
+                              "type": "photo_picker",
+                              "id": "soap_photos",
+                              "options": {
+                                "maxPhotos": 5,
+                                "allowCamera": true,
+                                "allowGallery": true
+                              },
+                              "validation": {
+                                "required": true,
+                                "minPhotos": 1
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "labelText": "Are sanitary materials (eg. phenyl, soaps, etc.) available?",
+                        "hintText": "Select type",
+                        "id": "sanitary_materials",
+                        "type": "radio_with_other",
+                        "options": ["Yes", "No"],
+                        "validation": {
+                          "required": true
+                        },
+  
+                        "otherOption": {
+                          "labelText": "",
+                          "hintText": "",
+                          "id": "",
+                          "type": "section",
+  
+                          "fields": [
+                            {
+                              "labelText": "Is it sufficiently provided?",
+  
+                              "id": "sufficient_amount_sanitary",
+                              "type": "radio",
+                              "options": ["Yes", "No"],
+                              "validation": {
+                                "required": true
+                              }
+                            },
+                            {
+                              "labelText": "Upload photos of sanitary_materials",
+                              "subtitle": "Upload photos of sanitary_materials",
+                              "type": "photo_picker",
+                              "id": "sanitary_photos",
+                              "options": {
+                                "maxPhotos": 5,
+                                "allowCamera": true,
+                                "allowGallery": true
+                              },
+                              "validation": {
+                                "required": true,
+                                "minPhotos": 1
+                              }
+                            },
+                            {
+                              "labelText": "Is toilet is being cleaned?",
+                              "hintText": "",
+                              "id": "toilet_cleaned",
+                              "type": "radio_with_other",
+                              "options": ["Yes", "No"],
+                              "validation": {
+                                "required": true
+                              },
+  
+                              "otherOption": {
+                                "labelText": "",
+                                "hintText": "",
+                                "id": "",
+                                "type": "section",
+  
+                                "fields": [
+                                  {
+                                    "labelText": "How toilet is being cleaned??",
+                                    "hintText": "Specify type",
+                                    "id": "cleaned_process",
+                                    "type": "text",
+                                    "validation": {
+                                      "required": true
+                                    }
+                                  },
+                                  {
+                                    "labelText": "Frequency of toilet cleaning?",
+                                    "hintText": "daily, once in a week",
+                                    "id": "frequency_cleaning",
+                                    "type": "text",
+                                    "validation": {
+                                      "required": true
+                                    }
+                                  },
+                                  {
+                                    "labelText": "Who cleans the toilets?",
+                                    "hintText": "",
+                                    "id": "toilet_clean_by",
+                                    "type": "text",
+                                    "validation": {
+                                      "required": true
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "labelText": "Is every toilet equipped with a bucket & Mug for washing",
+                        "hintText": "Select type",
+                        "id": "toilet_equipped",
+                        "type": "radio_with_other",
+                        "options": ["Yes", "No"],
+                        "validation": {
+                          "required": true
+                        },
+                        "otherOption": {
+                          "labelText": "",
+                          "hintText": "",
+                          "id": "",
+                          "type": "section",
+  
+                          "fields": [
+                            {
+                              "labelText": "Upload photos of buckets and mug",
+                              "subtitle": "Upload photos of buckets and mug",
+                              "type": "photo_picker",
+                              "id": "bucket_photos",
+                              "options": {
+                                "maxPhotos": 5,
+                                "allowCamera": true,
+                                "allowGallery": true
+                              },
+                              "validation": {
+                                "required": true,
+                                "minPhotos": 1
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "labelText": "Where does sewage go from toilets?",
+                        "hintText": "Select type",
+                        "id": "toilet_equipped",
+                        "type": "radio_with_other",
+                        "options": [
+                          "Septic tank",
+                          "aborbent",
+                          "open drainage",
+                          "river and train",
+                          "Other",
+                          "Not applicable"
+                        ],
+                        "validation": {
+                          "required": true
+                        },
+                        "otherOption": {
+                          "labelText": "",
+                          "hintText": "",
+                          "id": "",
+                          "type": "section",
+  
+                          "fields": [
+                            {
+                              "labelText": "Upload photos of sewage system",
+                              "subtitle": "Upload photos of sewage system",
+                              "type": "photo_picker",
+                              "id": "sewage_photos",
+                              "options": {
+                                "maxPhotos": 5,
+                                "allowCamera": true,
+                                "allowGallery": true
+                              },
+                              "validation": {
+                                "required": true,
+                                "minPhotos": 1
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "labelText": "How does disposal from toilet management take place?",
+                        "id": "disposal_management",
+                        "hintText": "Plastic botlles, ",
+                        "type": "text",
+                        "validation": {
+                          "required": true
+                        }
+                      }
+                    ]
+                  }
+                },
+  
+                {
+                  "labelText": "Is there a closed dustbin in female toilets for disposal of sanitary napkins?",
+                  "hintText": "",
+                  "id": "closed_dustbin",
+                  "type": "radio_with_other",
+                  "options": ["Yes", "No"],
+                  "validation": {
+                    "required": true
+                  },
+  
+                  "otherOption": {
+                    "labelText": "",
+                    "hintText": "",
+                    "id": "",
+                    "type": "section",
+  
+                    "fields": [
+                      {
+                        "labelText": "Number of closed dustbins",
+                        "hintText": "Enter number",
+                        "id": "no_closed_dustbin",
+                        "type": "numeric",
+                        "validation": {
+                          "required": true
+                        }
+                      },
+                      {
+                        "labelText": "How is it treated?",
+                        "hintText": "Write here",
+                        "id": "treated_closed_dustbin",
+                        "type": "text",
+                        "validation": {
+                          "required": true
+                        }
+                      },
+                      {
+                        "labelText": "Upload photos of closed dustbin",
+                        "subtitle": "Upload photos of closed dustbin",
+                        "type": "photo_picker",
+                        "id": "closed_dustbin_photos",
+                        "options": {
+                          "maxPhotos": 5,
+                          "allowCamera": true,
+                          "allowGallery": true
+                        },
+                        "validation": {
+                          "required": true,
+                          "minPhotos": 1
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "labelText": "Is dustbin available to collect garbage in the classroom?",
+                  "hintText": "",
+                  "id": "dustbin_available",
+                  "type": "radio_with_other",
+                  "options": ["Yes", "No"],
+                  "validation": {
+                    "required": true
+                  },
+  
+                  "otherOption": {
+                    "labelText": "",
+                    "hintText": "",
+                    "id": "",
+                    "type": "section",
+  
+                    "fields": [
+                      {
+                        "labelText": "Number of dustbins",
+                        "hintText": "Specify type",
+                        "id": "no_dustbins",
+                        "type": "numeric",
+                        "validation": {
+                          "required": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "labelText": "Does segregation of waste (dry/wet) take place??",
+                  "hintText": "Select type",
+                  "id": "waste_segregation",
+                  "type": "radio",
+                  "options": ["Yes", "No"],
+                  "validation": {
+                    "required": true
+                  }
+                },
+                {
+                  "labelText": "How is the garbage disposal done?",
+                  "hintText": "Select type",
+                  "id": "garbage_disposal",
+                  "type": "radio",
+                  "options": [
+                    "Garbage vehicle from Local government",
+                    "fireplace",
+                    "Trench",
+                    "Other"
+                  ],
+                  "validation": {
+                    "required": true
+                  },
+                  "otherOption": {
+                    "id": "garbage_disposal_other_option",
+                    "labelText": "Please specify"
+                  }
+                },
+                {
+                  "labelText": "Are there health check-up camps conducted in school?",
+                  "hintText": "",
+                  "id": "health_checkup_camp",
+                  "type": "radio_with_other",
+                  "options": ["Yes", "No"],
+                  "validation": {
+                    "required": true
+                  },
+  
+                  "otherOption": {
+                    "labelText": "",
+                    "hintText": "",
+                    "id": "",
+                    "type": "section",
+  
+                    "fields": [
+                      {
+                        "labelText": "what is its frequency?",
+                        "hintText": "e.g: once in a month etc.",
+                        "id": "frequency_health_camp",
+                        "type": "text",
+                        "validation": {
+                          "required": true
+                        }
+                      },
+                      {
+                        "labelText": "who conducts the camps?",
+                        "hintText": "Enter name",
+                        "id": "camp_conduct",
+                        "type": "text",
+                        "validation": {
+                          "required": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "labelText": "Have the Government provided any Sanitation/self-hygiene related training to teachers / non-teaching staff / students?",
+                  "hintText": "Select type",
+                  "id": "training_staff",
+                  "type": "radio",
+                  "options": ["Yes", "No"],
+                  "validation": {
+                    "required": true
+                  }
+                },
+                {
+                  "labelText": "Mention the total number of handicapped and children with special needs in your school.",
+                  "hintText": "Specify type",
+                  "id": "no_handicapped_children",
+                  "type": "number"
+                },
+                {
+                  "labelText": "Are WASH (water, sanitation & hygiene) trainings conducted in the school?",
+                  "id": "wash_training_teachers",
+                  "type": "radio_with_other",
+                  "options": ["Yes", "No"],
+                  "validation": {
+                    "required": true
+                  },
+  
+                  "otherOption": {
+                    "labelText": "",
+                    "hintText": "",
+                    "id": "",
+                    "type": "section",
+  
+                    "fields": [
+                      {
+                        "labelText": "What is its frequency?",
+                        "hintText": "e.g Once in a month",
+                        "id": "wash_training_teachers_frequency",
+                        "type": "text",
+                        "validation": {
+                          "required": true
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "labelText": "Is open defecation observed inside the school or just outside the school campus?",
+                  "hintText": "Select type",
+                  "id": "open_defecation",
+                  "type": "radio",
+                  "options": ["Yes", "No"],
+                  "validation": {
+                    "required": true
+                  }
+                },
+                {
+                  "labelText": "Does the O and M staff have enough safety materials like gloves, masks, apron, shoes, good quality cleaning materials/equipment?",
+                  "hintText": "Select type",
+                  "id": "safety_materials_OM",
+                  "type": "radio_with_other",
+                  "options": ["Yes", "No"],
+                  "validation": {
+                    "required": true
+                  },
+                  "otherOption": {
+                    "labelText": "",
+                    "hintText": "",
+                    "id": "",
+                    "type": "section",
+  
+                    "fields": [
+                      {
+                        "labelText": "Upload photos of safety materials",
+                        "subtitle": "Upload photos of safety materials",
+                        "type": "photo_picker",
+                        "id": "safety_materials_photosOandM",
+                        "options": {
+                          "maxPhotos": 5,
+                          "allowCamera": true,
+                          "allowGallery": true
+                        },
+                        "validation": {
+                          "required": true,
+                          "minPhotos": 1
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }

@@ -1,0 +1,197 @@
+{
+    "formDetails": {
+      "formName": "ESF School Baseline: WST Infrastructure"
+    },
+    "sections": [
+      {
+        "title": "WST Infrastructure",
+        "subtitle":"",
+        "fields": [
+          {
+            "labelText": "Enter UDISE Code",
+            "id": "udise",
+            "hintText": "UDISE Code",
+            "type": "udise",
+           
+            "fetchSchoolNamesApi": true
+          },
+          {
+            "labelText": "Availability of Digital Learning Facilities in school",
+            "hintText": "Select Option",
+            "id": "type_digital_learning_list",
+            "label": "Digital Learning Facilities",
+            "type": "type_digital_learning",
+            "options": [
+              "Smart Class", 
+              "Projector", 
+              "Computer", 
+              "No"
+            ],
+            "smart_class": {
+              "labelText": "Upload your Smart Class photos",
+              "subtitle": "Upload photos of the Smart Class facilities",
+              "type": "photo_picker",
+              "id": "smart_class_photos",
+              "options": {
+                "maxPhotos": 5,
+                "allowCamera": true,
+                "allowGallery": false
+              },
+              "validation": {
+                "required": true,
+                "minPhotos": 1
+              }
+            },
+            "projector": {
+              "labelText": "Upload your Projector photos",
+              "subtitle": "Upload photos of the Projector facilities",
+              "type": "photo_picker",
+              "id": "projector_photos",
+              "options": {
+                "maxPhotos": 5,
+                "allowCamera": true,
+                "allowGallery": false
+              },
+              "validation": {
+                "required": true,
+                "minPhotos": 1
+              }
+            },
+            "computer": {
+              "labelText": "Upload your Computer photos",
+              "subtitle": "Upload photos of the Computer facilities",
+              "type": "photo_picker",
+              "id": "computer_photos",
+              "options": {
+                "maxPhotos": 5,
+                "allowCamera": true,
+                "allowGallery": false
+              },
+              "validation": {
+                "required": true,
+                "minPhotos": 1
+              }
+            },
+            "no": {
+              "labelText": "No Digital Learning Facilities",
+              "subtitle": "No facilities available",
+              "type": "text",
+              "id": "no_facilities"
+            }
+          },
+           {
+                "labelText": "Existing library in the school",
+                "hintText": "Select type",
+                "id": "existing_library",
+                "type": "radio_with_other",
+                "options": ["Yes", "No"],
+                "validation": {
+                  "required": true
+                },
+                "otherOption": {
+                  "labelText": "",
+                  "hintText": "",
+                  "id": "",
+                  "type":"section",
+                  "fields":[
+                    {
+                      "labelText": "Upload photos of library ",
+                      "subtitle": "Upload photos of library",
+                      "type": "photo_picker",
+                      "id": "library_photos",
+                      "options": {
+                        "maxPhotos": 5,
+                        "allowCamera": true,
+                        "allowGallery": false
+                      },
+                      "validation": {
+                        "required": true,
+                        "minPhotos": 1
+                      }
+                    }
+                    ]}  
+              },
+              
+              {
+                "labelText": "Dimensions of space available for Playground",
+                "type": "playground_dimensions",
+                "subtitle": "Approx. measurement of space for playground",
+                "fields": [
+                  {
+                    "labelText": "Width (feet)",
+                    "id": "playground_width",
+                    "hintText": "Enter width in feet",
+                    "type": "number",
+                    "validation": {
+                      "required": true
+                    }
+                  },
+                  {
+                    "labelText": "Length (feet)",
+                    "id": "playground_length",
+                    "hintText": "Enter length in feet",
+                    "type": "number",
+                    "validation": {
+                      "required": true
+                    }
+                  }
+                ]
+              },
+              {
+                "labelText": "Photo of the available space",
+                "subtitle": "Photo of the available space",
+                "type": "photo_picker",
+                "id": "available_space_photo_playground",
+                "options": {
+                  "maxPhotos": 5,
+                  "allowCamera": true,
+                  "allowGallery": false
+                },
+                "validation": {
+                  "required": true,
+                  "minPhotos": 1
+                }
+              },
+              {
+                "labelText": "Photo of the room shortlisted for DL installation",
+                "subtitle":  "Photo of the room shortlisted for DL installation",
+                "type": "photo_picker",
+                "id": "dl_installation_room_photos",
+                "options": {
+                  "maxPhotos": 5,
+                  "allowCamera": true,
+                  "allowGallery": false
+                },
+                "validation": {
+                  "required": true,
+                  "minPhotos": 1
+                }
+              },
+              {
+                "labelText": "Photo of the room shortlisted for Library setup",
+                "subtitle": "Photo of the room shortlisted for Library setup",
+                "type": "photo_picker",
+                "id": "lib_setup_room_photos",
+                "options": {
+                  "maxPhotos": 5,
+                  "allowCamera": true,
+                  "allowGallery": false
+                },
+                "validation": {
+                  "required": true,
+                  "minPhotos": 1
+                }
+              }
+              
+            
+    
+          
+        ]
+        }
+          
+ 
+  
+    ]
+  }
+  
+  

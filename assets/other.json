@@ -1,0 +1,386 @@
+{
+  "formDetails": {
+    "formName": "ESF School Baseline: Other Information"
+  },
+  "sections": [
+    {
+      "title": "Other Information",
+      "subtitle":"",
+      "fields": [
+        {
+          "labelText": "Enter UDISE Code",
+          "id": "udise",
+          "hintText": "UDISE Code",
+          "type": "udise",
+         
+          "fetchSchoolNamesApi": true
+        },
+      
+          {
+            "labelText":"What is the tentative amount spent on O&M of WASH facilities in schools annually in Rupees?" ,
+             "id": "tentative_amt",
+            "hintText": "Enter amount",
+            "type": "number",
+            "validation": {
+              "required": true
+            }
+          },
+          {
+            "labelText":"What is the source of WASH funds?" ,
+             "id": "source_funds",
+            "hintText": "Source of WASH funds",
+            "type": "text",
+            "validation": {
+              "required": true
+            }
+          },
+          {
+            "labelText": "Is there a school management committee (SMC)?",
+            "hintText": "Select type",
+            "id": "smc_value",
+            "type": "radio_with_other",
+            "options": ["Yes", "No"],
+            "validation": {
+              "required": true
+            },
+            
+            "otherOption": {
+              "labelText": "",
+              "hintText": "",
+              "id": "",
+              "type": "section",
+              
+              "fields": [
+                {
+                  "labelText": "Total members of the SMC",
+                  "hintText": "Enter number",
+                  "id": "smc_member",
+                  "type": "numeric",
+                  "validation": {
+                    "required": true
+                  }
+                },
+                {
+                  "labelText": "Name of Chairman / Secretary of SMC",
+                  "hintText": "Enter name ",
+                  "id": "smc_chairman",
+                  "type": "text",
+                  "validation": {
+                    "required": true
+                  }
+                },
+                {
+                  "labelText": "Contact number of SMC",
+                  "hintText": "contact number",
+                  "id": "smc_contact",
+                  "type": "phone",
+                  "validation": {
+                    "required": true
+                  }
+                },
+                {
+                  "labelText": "Year of establishment of committee",
+                  "hintText": "Establishment Year",
+                  "id": "smc_year_of_establishment",
+                  "type": "year_picker",
+                  "year":1950,
+                  "options": ["1950","2000", "2001", "2002", "2003", "2004","2024"]
+
+                }
+              
+                
+              ]}
+          },
+          {
+            "labelText":"What are social activities implemented in school?" ,
+             "id": "social_activities",
+            "hintText": "Eg.: plantation, environment day, cleanliness day, world toilets day, world water day, art sports event, World Handwashing Day)",
+            "type": "text",
+            "validation": {
+              "required": true
+            }
+          },
+  
+          {
+            "labelText": "Is there fund available from the government for water and sanitation work or maintenance?",
+            "hintText": "Select type",
+            "id": "gov_fund_available",
+            "type": "radio_with_other",
+            "options": ["Yes", "No"],
+            "validation": {
+              "required": true
+            },
+            "otherOption": {
+              "labelText": "Add Government Fund Details",
+              "hintText": "",
+              "id": "gov_fund_details",  
+              "type": "bottomsheet",
+              "fields": [
+                {
+                  "labelText": "Work Name",
+                  "hintText": "Enter work name",
+                  "id": "work_name",
+                  "type": "text"
+                },
+                {
+                  "labelText": "Annual Fund",
+                  "hintText": "Enter annual fund",
+                  "id": "annual_fund",
+                  "type": "numeric"
+                },
+                {
+                  "labelText": "Disbursal Duration",
+                  "hintText": "Select duration",
+                  "id": "disbursal_duration",
+                  "type": "radio",
+                  "options": ["Annually", "Half yearly"],
+                  "validation": {
+                    "required": true
+                  }
+                }
+              ]
+            }
+          },
+
+          {
+            "labelText": "Is there a guard wall for the school premises / free space for the safety of school children?",
+            "hintText": "Select type",
+            "id": "guard_well",
+            "type": "radio_with_other",
+            "options": ["Yes", "No"],
+            "validation": {
+              "required": true
+            },
+            
+            "otherOption": {
+              "labelText": "",
+              "hintText": "",
+              "id": "",
+              "type": "section",
+              
+              "fields": [
+               
+              
+                {
+                  "labelText": "Upload photos of guard well",
+                  "subtitle": "Upload photos of guard well",
+                  "type": "photo_picker",
+                  "id": "guard_well_photo",
+                  "options": {
+                    "maxPhotos": 5,
+                    "allowCamera": true,
+                    "allowGallery":false
+                   
+                  },
+                  "validation": {
+                    "required": true,
+                    "minPhotos": 1
+                  }
+                }
+              
+               
+                
+  
+                
+              ]}
+          },
+          {
+            "labelText": "Does the school have an independent power supply?",
+            "hintText": "Select type",
+            "id": "power_supply",
+            "type": "radio_with_other",
+            "options": ["Yes", "No"],
+            "validation": {
+              "required": true
+            },
+            "otherOption": {
+              "labelText": "",
+              "hintText": "",
+              "id": "",
+              "type": "section",
+              "fields": [{
+                  "labelText": "Disbursal Duration",
+                  "hintText": "Select duration",
+                  "id": "disbursal_duration",
+                  "type": "radio",
+                  "options": ["Monthly", "Bi Monthly","Quarterly","Prepaid","Other"],
+                  "validation": {
+                    "required": true
+                  }
+                },
+                {
+                  "labelText": "What is the tentative bill amount?",
+                  "hintText": "Write here..",
+                  "id": "tentative_bill_amt",
+                  "type": "numeric",
+                  "validation": {
+                    "required": true
+                  }
+                }
+              ]}
+          },
+          {
+            "labelText": "Is there a Bal cabinet available in the school?",
+            "hintText": "Select type",
+            "id": "bal_cabinet",
+            "type": "radio_with_other",
+            "options": ["Yes", "No"],
+            "validation": {
+              "required": true
+            },
+            
+            "otherOption": {
+              "labelText": "",
+              "hintText": "",
+              "id": "",
+              "type": "section",
+              
+              "fields": [
+               
+              
+                {
+                  "labelText": "Number of Bal cabinet members",
+                  "hintText": "Enter number",
+                  "id": "bal_cabinet_members",
+                  "type": "numeric",
+                  "validation": {
+                    "required": true
+                  }
+                  
+                  
+                }
+              
+               
+                
+  
+                
+              ]}
+          },
+
+          
+          {
+            "labelText": "Is there Midday meal facility available?",
+            "hintText": "Select type",
+            "id": "mid_day_meal",
+            "type": "radio_with_other",
+            "options": ["Yes", "No"],
+            "validation": {
+              "required": true
+            },
+            
+            "otherOption": {
+              "labelText": "",
+              "hintText": "Specify type",
+              "id": "",
+              "type": "section",
+              
+              "fields": [
+               
+                {
+                  "labelText": "How do you monitor the hygiene part in preparing & serving food to children?",
+                  "hintText": "Write here..",
+                  "id": "hygiene_monitoring",
+                  "type": "text",
+                  "validation": {
+                    "required": true
+                  }
+                  
+                  
+                },
+                {
+                  "labelText": "Do all students practice group handwashing with soap and water before eating mid-day meal?",
+                  "hintText": "Select type",
+                  "id": "practice",
+                  "type": "radio",
+                  "options": ["Yes", "No"],
+                  "validation": {
+                    "required": true
+                  }
+                }
+               
+                
+  
+                
+              ]}
+          },
+          {
+            "labelText": "Is the playground facility available?",
+            "hintText": "Select type",
+            "id": "playground",
+            "type": "radio_with_other",
+            "options": ["Yes", "No"],
+            "validation": {
+              "required": true
+            },
+            
+            "otherOption": {
+              "labelText": "",
+              "hintText": "Specify type",
+              "id": "",
+              "type": "section",
+              
+              "fields": [
+               
+                {
+                  "labelText": "Type of sports taken during period.",
+                  "hintText": "Sports type",
+                  "id": "sport_type",
+                  "type": "text",
+                  "validation": {
+                    "required": true
+                  }
+                  
+                  
+                },
+                {
+                  "labelText": "Upload photos of playground",
+                  "subtitle": "Upload photos of playground",
+                  "type": "photo_picker",
+                  "id": "playground_photo_other",
+                  "options": {
+                    "maxPhotos": 5,
+                    "allowCamera": true,
+                    "allowGallery":false
+                   
+                  },
+                  "validation": {
+                    "required": true,
+                    "minPhotos": 1
+                  }
+                }
+              
+               
+                
+  
+                
+              ]}
+          },
+          {
+            "labelText": "Is WASH training for teachers conducted at schools",
+            "hintText": "Select type",
+            "id": "wash_training_teachers",
+            "type": "radio",
+            "options": ["Yes","No"],
+            "validation": {
+              "required": true
+            }
+          },
+          {
+            "labelText": "Does the school display and use Water, Sanitation and Hygiene related posters and materials for promoting hygiene education?",
+            "hintText": "Select type",
+            "id": "poster_display",
+            "type": "radio",
+            "options": ["Yes","No"],
+            "validation": {
+              "required": true
+            }
+          }
+  
+        
+      ]
+      }
+        
+
+
+  ]
+}

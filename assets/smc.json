@@ -1,0 +1,91 @@
+{
+    "formDetails": {
+      "formName": "ESF School Baseline: SMC/VEC Details"
+    },
+    "sections": [
+      {
+        "title": "SMC/VEC Details",
+        "subtitle":"",
+        "fields": [
+          {
+            "labelText": "Enter UDISE Code",
+            "id": "udise",
+            "hintText": "UDISE Code",
+            "type": "udise",
+            "fetchSchoolNamesApi": true
+          },
+            {
+                "labelText": "Name of the SMC President",
+                "hintText": "Enter name ",
+                "id": "smc_president",
+                "type": "text",
+                "validation": {
+                  "required": true
+                }
+
+              },
+              {
+                "labelText": "Contact number of the SMC President",
+                "hintText": "contact number",
+                "id": "smc_president_contact",
+                "type": "phone",
+                "validation": {
+                  "required": true
+                }
+              },
+              {
+                "labelText": "Educational Qualification of SMC President",
+                "hintText": " Qualification",
+                "id": "educational_smc",
+                "type": "radio",
+                "options": ["Post Graduate","Graduate", "Non-Graduate", "Other"],
+                "otherOption": {
+                    "id": "smc_education_other",
+                    "labelText": "Please specify"
+                  }
+
+              },
+              {
+                "labelText": "Total members of the SMC",
+                "hintText": "Enter number",
+                "id": "smc_number",
+                "type": "number",
+                "validation": {
+                  "required": true
+                }
+              },
+              {
+                "labelText": "Frequency of SMC meetings",
+                "hintText": " Frequency",
+                "id": "frequency_meeting",
+                "type": "radio",
+                "options": ["Once a month","Once a quarter", "Once in 6 months", "Once a year","Other"],
+                "otherOption": {
+                    "id": "meeting_frequency_other",
+                    "labelText": "Please specify"
+                  }
+
+              },
+              {
+                "labelText": "How supportive are the SMC Member",
+                "hintText": "Write here.. ",
+                "id": "supportive_member",
+                "type": "text",
+                "maxlines":2,
+                "minlength":10,
+                "validation": {
+                  "required": true
+                }
+              }
+        
+            
+    
+          
+        ]
+        }
+          
+ 
+  
+    ]
+  }
+  
