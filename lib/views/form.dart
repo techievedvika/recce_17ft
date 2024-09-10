@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'dart:io';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -115,7 +114,14 @@ class FormView extends StatelessWidget {
           } else if (state is FormError) {
             return Center(child: Text(state.message));
           }
-          return const Center(child: Text('Please wait...',style: TextStyle(color:AppColors.primary,fontSize: 16,fontWeight: FontWeight.bold),));
+          return const Center(
+              child: Text(
+            'Please wait...',
+            style: TextStyle(
+                color: AppColors.primary,
+                fontSize: 16,
+                fontWeight: FontWeight.bold),
+          ));
         },
       ),
     );
@@ -170,11 +176,14 @@ class FormWidget extends StatefulWidget {
 class _FormWidgetState extends State<FormWidget> {
   final _formKey = GlobalKey<FormState>();
   late Map<String, dynamic> _formValues;
+  //final Map<String, FocusNode> _focusNodes = {}; // Store focus nodes
+  final ScrollController _scrollController = ScrollController();
   late String formName;
   int _currentSection = 0;
   final Map<String, PhotoPickerData> _photoPickerData = {};
   final List<String> _schoolNames = [];
   String? _schoolName; // Define _schoolNames here
+  String? validatemessage;
 
   @override
   void initState() {
@@ -183,6 +192,13 @@ class _FormWidgetState extends State<FormWidget> {
     _formValues['latitude'] = widget.currentPosition!.latitude;
     _formValues['longitude'] = widget.currentPosition!.longitude;
     formName = widget.formName ?? 'Form';
+
+    // Initialize focus nodes for each field
+    // widget.formData!['sections'].forEach((section) {
+    //   section['fields'].forEach((field) {
+    //     _focusNodes[field['id']] = FocusNode();
+    //   });
+    // });
   }
 
   @override
@@ -494,6 +510,111 @@ class _FormWidgetState extends State<FormWidget> {
                                 ),
                               ],
                             );
+                          case 'device_count':
+                            return Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                LabelText(
+                                  label: field[
+                                      'labelText'], // Display the label for this section
+                                  astrick: true,
+                                ),
+                                const SizedBox(height: 10),
+
+                                // Table Header
+                                const Row(
+                                  children: [
+                                    Expanded(child: Text('Device Type',style: TextStyle(fontWeight: FontWeight.bold,),)),
+                                    Expanded(child: Text('Total Devices',style: TextStyle(fontWeight: FontWeight.bold),)),
+                                    Expanded(child: Text('Working Devices',style: TextStyle(fontWeight: FontWeight.bold),)),
+                                  ],
+                                ),
+
+                                const SizedBox(height: 10),
+
+                                // Iterate over each device type
+                                ...field['deviceTypes']
+                                    .map<Widget>((deviceType) {
+                                  TextEditingController totalController =
+                                      TextEditingController(
+                                    text: _formValues[
+                                            'total_${deviceType['id']}'] ??
+                                        '',
+                                  );
+                                  TextEditingController workingController =
+                                      TextEditingController(
+                                    text: _formValues[
+                                            'working_${deviceType['id']}'] ??
+                                        '',
+                                  );
+
+                                  return Column(
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Expanded(
+                                            child: Text(deviceType[
+                                                'label'],style: const TextStyle(fontWeight: FontWeight.bold)), // Display the device name
+                                          ),
+                                          Expanded(
+                                            child: CustomTextFormField(
+                                              textController: totalController,
+                                              labelText: 'Total',
+                                              textInputType: TextInputType.number,
+                                              validator: (value) {
+                                                if (value == null ||
+                                                    value.isEmpty) {
+                                                  return 'Field required'; // Validation for total devices
+                                                }
+                                                return null;
+                                              },
+                                              onChanged: (value) {
+                                                _formValues[
+                                                        'total_${deviceType['id']}'] =
+                                                    value;
+                                              
+                                              },
+                                            ),
+                                          ),
+                                          const SizedBox(width: 15,),
+                                          Expanded(
+                                            child: CustomTextFormField(
+                                              textController: workingController,
+                                              labelText: 'Working',
+                                              textInputType: TextInputType.number,
+                                              validator: (value) {
+                                                int total = int.tryParse(_formValues[
+                                                            'total_${deviceType['id']}'] ??
+                                                        '') ??
+                                                    0;
+                                                int working =
+                                                    int.tryParse(value ?? '') ?? 0;
+                                      
+                                                if (value == null ||
+                                                    value.isEmpty) {
+                                                  return 'Field required'; // Validation for working devices
+                                                } else if (working > total) {
+                                                  return 'Cannot exceed total devices'; // Validation for working devices
+                                                }
+                                                return null;
+                                              },
+                                              onChanged: (value) {
+                                                _formValues[
+                                                        'working_${deviceType['id']}'] =
+                                                    value;
+                                              
+                                              },
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      const SizedBox(height: 15,)
+                                    ],
+                                  );
+                                  
+                                }).toList(),
+                              ],
+                            );
 
                           case 'year_picker':
                             return Column(
@@ -686,17 +807,19 @@ class _FormWidgetState extends State<FormWidget> {
                                   ),
                               ],
                             );
-
                           case 'checkbox':
                             List<dynamic> options =
                                 List<dynamic>.from(field['options'] ?? []);
                             List<dynamic> selectedValues = [];
+                            final bool isRequired =
+                                field['validation']?['required'] ?? false;
 
                             return Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 LabelText(
                                   label: field['labelText'],
-                                  astrick: true,
+                                  astrick: isRequired,
                                 ),
                                 const SizedBox(height: 10),
                                 Column(
@@ -716,17 +839,29 @@ class _FormWidgetState extends State<FormWidget> {
                                         } else {
                                           selectedValues.remove(option);
                                         }
+
                                         setState(() {
                                           _formValues[field['id']] =
                                               selectedValues;
+                                          // Validation: if the field is required and no option is selected, show the error message
                                         });
                                       },
                                     );
                                   }).toList(),
                                 ),
+                                // Display the validation message if there is one
+                                if (validatemessage != null)
+                                  Align(
+                                    alignment: Alignment.topLeft,
+                                    child: Text(
+                                      validatemessage!,
+                                      style: const TextStyle(color: Colors.red),
+                                    ),
+                                  ),
                                 const SizedBox(height: 20),
                               ],
                             );
+
                           case 'type_digital_learning':
                             return Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -1192,9 +1327,33 @@ class _FormWidgetState extends State<FormWidget> {
                               style: AppStyles.primaryButtonStyle(
                                   context, AppColors.primary),
                               onPressed: () async {
+                                bool isValid =
+                                    true; // Track overall form validity
+
+                                // Iterate through each section and its fields to perform validation
+                                 // Iterate over each section
+  widget.formData!['sections'].forEach((section) {
+    // Iterate over each field in the section
+    section['fields'].forEach((field) {
+      // Recursively validate the field and its nested fields (if any)
+      isValid = _validateField(field) && isValid;
+
+      // Check for nested otherOption fields and validate them
+      if (field.containsKey('otherOption') && field['otherOption'] is Map) {
+        if(field['otherOption']['fields'] != null || field['otherOption']['fields'] == ''){
+        final otherOptionFields = field['otherOption']['fields'] as List<dynamic>;
+        for (var nestedField in otherOptionFields) {
+          // Validate nested fields in otherOption
+          isValid = _validateField(nestedField) && isValid;
+        }
+        }
+      }
+    });
+  });
                                 // Validate form before showing the confirmation dialog
-                                if (_formKey.currentState?.validate() ??
-                                    false) {
+                                if ((_formKey.currentState?.validate() ??
+                                        false) &&
+                                    isValid) {
                                   // Show confirmation dialog
                                   bool? confirmationResult = await showDialog(
                                     context: context,
@@ -1227,10 +1386,12 @@ class _FormWidgetState extends State<FormWidget> {
                                       const CircularProgressIndicator();
                                       _formKey.currentState?.save();
                                       // Upload photos and submit the form
-                                      context.read<FormCubit>().uploadPhotosAndSubmitForm(_photoPickerData, _formValues,widget.id);
-                                    //  await _uploadPhotosAndSubmitForm();
-                                      
-                                      
+                                      context
+                                          .read<FormCubit>()
+                                          .uploadPhotosAndSubmitForm(
+                                              _photoPickerData,
+                                              _formValues,
+                                              widget.id);
                                     } finally {
                                       // Stop loading indicator after submission
                                     }
@@ -1239,7 +1400,8 @@ class _FormWidgetState extends State<FormWidget> {
                                 } else {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     const SnackBar(
-                                      content: Text('Form validation failed'),
+                                      content: Text(
+                                          'Please check!! Some fields are missing'),
                                       backgroundColor: Colors.red,
                                     ),
                                   );
@@ -1263,6 +1425,73 @@ class _FormWidgetState extends State<FormWidget> {
       ),
     );
   }
+
+  bool _validateField(Map<String, dynamic> field) {
+    bool isValid = true;
+
+    // Check if the field is a photo picker
+    if (field['type'] == 'photo_picker' ) {
+      print('Found the photo_picker');
+      final bool isRequired = field['validation']?['required'] ?? false;
+      final int minPhotos = field['validation']?['minPhotos'] ?? 0;
+
+      // Get the photo picker data for this field
+      final photoPickerData = _photoPickerData[field['id']];
+
+      // Perform photo picker validation
+      if (photoPickerData == null || photoPickerData.photos.isEmpty) {
+        if (isRequired) {
+          isValid = false;
+          print('Field ${field['labelText']} is required.');
+        }
+      } else if (photoPickerData.photos.length < minPhotos) {
+        isValid = false;
+        print(
+            'Field ${field['labelText']} requires at least $minPhotos photos.');
+      }
+    }
+
+    // Check if the field is a checkbox
+    if (field['type'] == 'checkbox') {
+      print('Found the checkbox');
+      final bool isRequired = field['validation']?['required'] ?? false;
+
+      // Get the checkbox data for this field
+      final selectedValues = _formValues[field['id']] ?? [];
+
+      // Perform checkbox validation
+      if (isRequired && selectedValues.isEmpty) {
+        isValid = false;
+      
+      setState(() {
+         validatemessage =
+            'Field ${field['labelText']} requires at least one option to be selected.';
+      });
+       
+      } else {
+        setState(() {
+           validatemessage = null;
+        validatemessage = '';
+        });
+       
+      }
+    }
+
+    // Check if the field has an 'otherOption' with nested fields
+    if (field.containsKey('otherOption') &&
+        field['type'] == 'checkbox' &&
+        field['otherOption'] is Map) {
+      final otherOptionFields = field['otherOption']['fields'] as List<dynamic>;
+      for (var nestedField in otherOptionFields) {
+        print('Found nested field in otherOption');
+        // Recursively validate the nested fields
+        isValid = _validateField(nestedField) && isValid;
+      }
+    }
+
+    return isValid;
+  }
+//
 
   void _showBottomSheet(
       BuildContext context, List<dynamic> fields, String formId) {
@@ -1311,8 +1540,8 @@ class _FormWidgetState extends State<FormWidget> {
                                   options: List<String>.from(field['options']),
                                   onChanged: (String? value) {
                                     setState(() {
-                                       bottomSheetFormValues[field['id']] =
-                                             value;
+                                      bottomSheetFormValues[field['id']] =
+                                          value;
                                       _formValues[field['id']] = value;
                                     });
                                   },
@@ -1570,8 +1799,6 @@ class _FormWidgetState extends State<FormWidget> {
   }
 
   Widget _buildDynamicField(Map<String, dynamic> otherOption) {
-    print('bysection $otherOption');
-
     switch (otherOption['type']) {
       case 'bottomsheet':
         return Column(
@@ -2270,7 +2497,5 @@ class YearPickerDialog extends StatelessWidget {
     );
   }
 }
-
-
 
 //

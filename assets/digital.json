@@ -50,119 +50,28 @@
           }
         },
         {
+          "type": "device_count",
+          "id":"device_info",
+          "labelText": "How many of the below types of devices does your school have?",
+          "deviceTypes": [
+            { "id": "desktop", "label": "Desktop", "required": true },
+            { "id": "laptop", "label": "Laptop", "required": true },
+            { "id": "tablet", "label": "Tablet", "required": true },
+            { "id": "projector", "label": "Projector", "required": true },
+            { "id": "tv_led", "label": "TV/LED", "required": true },
+            { "id": "smart_tv", "label": "Smart TV/Android TV", "required": true }
+          ]
+        },
+        
+     
+        
+        {
           "labelText": "How many of the below types of devices, in working condition, does your school have?",
           "hintText": "Specify type",
           "id": "",
           "type": "section"
         },
-        {
-          "labelText": "Total number of desktop?",
-          "hintText": "e.g: 4",
-          "id": "no_desktop",
-          "type": "number",
-          "validation": {
-            "required": true
-          }
-        },
-        {
-          "labelText": "Number of working desktop?",
-          "hintText": "e.g 3",
-          "id": "no_working_desktop",
-          "type": "number",
-          "validation": {
-            "required": true
-          }
-        },
-        {
-          "labelText": "Total number of Laptops?",
-          "hintText": "e.g 3",
-          "id": "no_laptops",
-          "type": "number",
-          "validation": {
-            "required": true
-          }
-        },
-        {
-          "labelText": "Number of working Laptops?",
-          "hintText": "e.g 3",
-          "id": "no_working_laptops",
-          "type": "number",
-          "validation": {
-            "required": true
-          }
-        },
-        {
-          "labelText": "Total number of tablets?",
-          "hintText": "e.g 3",
-          "id": "no_tablets",
-          "type": "number",
-          "validation": {
-            "required": true
-          }
-        },
-        {
-          "labelText": "Number of working tablets?",
-          "hintText": "e.g 3",
-          "id": "no_working_tablets",
-          "type": "number",
-          "validation": {
-            "required": true
-          }
-        },
-        {
-          "labelText": "Total number of Projectors?",
-          "hintText": "e.g 3",
-          "id": "no_projectors",
-          "type": "number",
-          "validation": {
-            "required": true
-          }
-        },
-        {
-          "labelText": "Number of working projectors?",
-          "hintText": "e.g 3",
-          "id": "no_working_projetors",
-          "type": "number",
-          "validation": {
-            "required": true
-          }
-        },
-        {
-          "labelText": "Total number of TV/LED?",
-          "hintText": "e.g 3",
-          "id": "no_tv_led",
-          "type": "number",
-          "validation": {
-            "required": true
-          }
-        },
-        {
-          "labelText": "Number of working TV/LED?",
-          "hintText": "e.g 3",
-          "id": "no_working_tv_led",
-          "type": "number",
-          "validation": {
-            "required": true
-          }
-        },
-        {
-          "labelText": "Total number of Smart TV/Android TV?",
-          "hintText": "e.g 3",
-          "id": "no_tv_smart",
-          "type": "number",
-          "validation": {
-            "required": true
-          }
-        },
-        {
-          "labelText": "Number of working Smart TV/Android TV",
-          "hintText": "e.g 3",
-          "id": "no_working_tv_smart",
-          "type": "number",
-          "validation": {
-            "required": true
-          }
-        },
+       
         {
           "labelText": "Are there teachers at your school who use technology to prepare their lessons (i.e. research the topic online, finding resources to share in class, etc)?",
           "hintText": "Select type",

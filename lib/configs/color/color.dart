@@ -253,6 +253,7 @@ textStyle:    TextStyle(
       fontSize: responsiveFontSize(context, 20),
       fontWeight: FontWeight.bold,
       color: Colors.white,
+      overflow: TextOverflow.ellipsis,
     );
   }
 

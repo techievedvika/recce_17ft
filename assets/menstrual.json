@@ -340,7 +340,10 @@
                   "type": "checkbox",
                   "options": [
                     "Cloth Napkin", "Sanitary Napkin", "Menstrual Cups", "Not Applicable"
-                  ]
+                  ],
+                  "validation": {
+                    "required": true
+                  }
                 },
                 {
                   "labelText": "Is the school currently having sanitary pad vending or storage facility?",
