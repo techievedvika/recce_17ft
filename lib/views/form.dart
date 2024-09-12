@@ -7,10 +7,12 @@ import 'package:geolocator/geolocator.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:recce/blocs/form_cubit.dart';
+import 'package:recce/blocs/network_cubit.dart';
 import 'package:recce/components/component.dart';
 import 'package:recce/components/custom_appbar.dart';
 import 'package:intl/intl.dart';
 import 'package:http/http.dart' as http;
+import 'package:recce/views/widgets/nointernet_widget.dart';
 
 class FormScreen extends StatelessWidget {
   final Map<String, dynamic>? mapArgs;
@@ -49,79 +51,103 @@ class FormView extends StatelessWidget {
       onWillPop: () async {
         return _showExitConfirmationDialog(context);
       },
-      child: BlocConsumer<FormCubit, FormStates>(
-        listener: (context, state) {
-          // if (state is FormLoading) {
-          //   const Center(child: CircularProgressIndicator());
-          // }
-          if (state is FormSubmitted) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                backgroundColor: AppColors.primary,
-                content: Text('Form submitted: ${state.formData.message}'),
-              ),
-            );
-            Navigator.pushNamed(context, '/home_screen');
-          } else if (state is FormError) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                backgroundColor: AppColors.primary,
-                content: Text('Error: ${state.message}'),
-              ),
-            );
+      child: BlocConsumer<NetworkCubit,NetworkState>(
 
-            Navigator.pushNamed(context, '/home_screen');
+        listener: (context,networkState) {
+           if (networkState is NetworkDisconnected) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text('No Internet Connection'),
+                backgroundColor: AppColors.error,
+              ),
+            );
           }
         },
-        builder: (context, state) {
-          if (state is FormLoading) {
-            return const Center(
-                child: CircularProgressIndicator(
-              backgroundColor: AppColors.primary,
-            ));
-          } else if (state is FormUpLoading) {
-            return Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Center(
-                      child: CircularPercentIndicator(
-                    animationDuration: 200,
-                    // animation: true,
-                    radius: 50.0,
-                    lineWidth: 10.0,
-                    percent: state.progress,
-                    center:
-                        Text('${(state.progress * 100).toStringAsFixed(0)}%'),
-                    progressColor: AppColors.primary,
-                  )),
-                  // CircularProgressIndicator(
-                  //   value: state.progress,
-                  //   backgroundColor: AppColors.primary,
-                  // ),
-                  //  const SizedBox(height: 16),
-                  //  Text('${(state.progress * 100).toStringAsFixed(0)}% uploaded',style: const TextStyle(fontSize: 16),),
-                ],
-              ),
+        builder: (context, networkState) {
+          if (networkState is NetworkConnected) {
+          return BlocConsumer<FormCubit, FormStates>(
+            listener: (context, state) {
+              // if (state is FormLoading) {
+              //   const Center(child: CircularProgressIndicator());
+              // }
+              if (state is FormSubmitted) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    backgroundColor: AppColors.primary,
+                    content: Text('Form submitted: ${state.formData.message}'),
+                  ),
+                );
+                Navigator.pushNamed(context, '/home_screen');
+              } else if (state is FormError) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    backgroundColor: AppColors.primary,
+                    content: Text('Error: ${state.message}'),
+                  ),
+                );
+          
+                Navigator.pushNamed(context, '/home_screen');
+              }
+            },
+            builder: (context, state) {
+              if (state is FormLoading) {
+                return const Center(
+                    child: CircularProgressIndicator(
+                  backgroundColor: AppColors.primary,
+                ));
+              } else if (state is FormUpLoading) {
+                return Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Center(
+                          child: CircularPercentIndicator(
+                        animationDuration: 200,
+                        // animation: true,
+                        radius: 50.0,
+                        lineWidth: 10.0,
+                        percent: state.progress,
+                        center:
+                            Text('${(state.progress * 100).toStringAsFixed(0)}%'),
+                        progressColor: AppColors.primary,
+                      )),
+                      // CircularProgressIndicator(
+                      //   value: state.progress,
+                      //   backgroundColor: AppColors.primary,
+                      // ),
+                      //  const SizedBox(height: 16),
+                      //  Text('${(state.progress * 100).toStringAsFixed(0)}% uploaded',style: const TextStyle(fontSize: 16),),
+                    ],
+                  ),
+                );
+              } else if (state is FormLoaded) {
+                return FormWidget(
+                  formData: mapJson,
+                  formName: formName,
+                  currentPosition: position,
+                  id: id,
+                );
+              } else if (state is FormError) {
+                return Center(child: Text(state.message));
+              }
+              return const Center(
+                  child: Text(
+                'Please wait...',
+                style: TextStyle(
+                    color: AppColors.primary,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold),
+              ));
+            },
+          );
+        } else if (networkState is NetworkDisconnected) {
+            return NoInternetWidget(
+              onRetry: () {
+                context.read<NetworkCubit>();
+              },
             );
-          } else if (state is FormLoaded) {
-            return FormWidget(
-              formData: mapJson,
-              formName: formName,
-              currentPosition: position,
-              id: id,
-            );
-          } else if (state is FormError) {
-            return Center(child: Text(state.message));
           }
-          return const Center(
-              child: Text(
-            'Please wait...',
-            style: TextStyle(
-                color: AppColors.primary,
-                fontSize: 16,
-                fontWeight: FontWeight.bold),
-          ));
+          return const Center(child: CircularProgressIndicator());
         },
       ),
     );

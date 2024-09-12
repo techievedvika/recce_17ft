@@ -30,10 +30,8 @@ class LoginCubit extends Cubit<LoginState> {
     try {
       final value = await _loginRepository.loginApi({"username": username, "password": password});
       if (value!.status == 0) {
-        print('login fail');
        emit(LoginFailure(value.message));
       } else if(value.status == 1) {
-         print('login success');
        emit(LoginSuccess(value.message));
       }
     } catch (error) {

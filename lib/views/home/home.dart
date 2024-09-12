@@ -3,8 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:recce/components/custom_appbar.dart';
 import 'package:recce/blocs/form_cubit.dart';
+import 'package:recce/blocs/network_cubit.dart'; // Import NetworkCubit
 import 'package:recce/configs/color/color.dart';
 import 'package:recce/configs/routes/routes_name.dart';
+import 'package:recce/views/widgets/nointernet_widget.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -16,49 +18,75 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   @override
+  void initState() {
+    super.initState();
+    context.read<NetworkCubit>();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => FormCubit()..loadForm(),
-      child: Scaffold(
-        appBar: const CustomAppbar(title: 'Home Screen'),
-        body: BlocConsumer<FormCubit, FormStates>(
-          listener: (context, state) {
-            if (state is FormError) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text('Error: ${state.message}'),
-                  backgroundColor: AppColors.primary,
-                ),
-              );
-            }
-          },
-          builder: (context, state) {
-            if (state is FormLoading) {
-              return const Center(child: CircularProgressIndicator());
-            } else if (state is FormLoaded) {
-              return ListViewWidget(
-                formJsonList: state.formData,
-                currentPosition: state.position,
-              );
-            } else if (state is FormError) {
-              return Center(child: Text(state.message));
-            }
-            return const Center(
-                child: Text(
-              'Please wait...',
-              style: TextStyle(
-                  color: AppColors.primary,
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold),
-            ));
-          },
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            _logout();
-          },
-          child: const Text('Logout'),
-        ),
+    return Scaffold(
+      appBar: const CustomAppbar(title: 'Home Screen'),
+      body: BlocConsumer<NetworkCubit, NetworkState>(
+        listener: (context, networkState) {
+          if (networkState is NetworkDisconnected) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text('No Internet Connection'),
+                backgroundColor: AppColors.error,
+              ),
+            );
+          }
+        },
+        builder: (context, networkState) {
+          if (networkState is NetworkConnected) {
+            return BlocConsumer<FormCubit, FormStates>(
+              listener: (context, formState) {
+                if (formState is FormError) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text('Error: ${formState.message}'),
+                      backgroundColor: AppColors.primary,
+                    ),
+                  );
+                }
+              },
+              builder: (context, formState) {
+                if (formState is FormLoading) {
+                  return const Center(child: CircularProgressIndicator());
+                } else if (formState is FormLoaded) {
+                  return ListViewWidget(
+                    formJsonList: formState.formData,
+                    currentPosition: formState.position,
+                  );
+                } else if (formState is FormError) {
+                  return Center(child: Text(formState.message));
+                }
+                return const Center(
+                    child: Text(
+                  'Please wait...',
+                  style: TextStyle(
+                      color: AppColors.primary,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold),
+                ));
+              },
+            );
+          } else if (networkState is NetworkDisconnected) {
+            return NoInternetWidget(
+              onRetry: () {
+                context.read<NetworkCubit>();
+              },
+            );
+          }
+          return const Center(child: CircularProgressIndicator());
+        },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          _logout();
+        },
+        child: const Text('Logout'),
       ),
     );
   }
@@ -66,35 +94,12 @@ class _HomeScreenState extends State<HomeScreen> {
   Future<void> _logout() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.remove('isLoggedIn'); // Correctly clear the login state
-    print(
-        'Current isLoggedIn value before clear: ${prefs.getBool('isLoggedIn')}');
+    print('Current isLoggedIn value before clear: ${prefs.getBool('isLoggedIn')}');
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       Navigator.pushReplacementNamed(context, RoutesName.loginScreen);
     });
   }
-
-// Future<void> _logout(BuildContext context) async {
-//   print('logout is called');
-
-//   final prefs = await SharedPreferences.getInstance();
-
-//   // Debug print to verify current preferences
-//   print('Current isLoggedIn value before clear: ${prefs.getBool('isLoggedIn')}');
-
-//   // Clear all saved preferences
-//   await prefs.clear();
-
-//   // Debug print to verify preferences are cleared
-//   print('isLoggedIn value after clear: ${prefs.getBool('isLoggedIn')}');
-
-//   // Ensure navigation happens only if context is mounted
-//   if (context.mounted) {
-//     Navigator.pushReplacementNamed(context, RoutesName.loginScreen);
-//   } else {
-//     print('Context is not mounted. Navigation aborted.');
-//   }
-// }
 }
 
 class ListViewWidget extends StatelessWidget {
@@ -109,8 +114,6 @@ class ListViewWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('list view widget is called');
-
     return RefreshIndicator(
       onRefresh: () async {
         context.read<FormCubit>().loadForm();
