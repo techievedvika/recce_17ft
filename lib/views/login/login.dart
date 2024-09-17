@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get/get.dart';
 import 'package:recce/blocs/login_cubit.dart';
 import 'package:recce/blocs/login_state.dart';
 import 'package:recce/components/curved_container.dart';

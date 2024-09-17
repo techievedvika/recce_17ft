@@ -8,7 +8,6 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:recce/models/survery/survey_model.dart';
 import 'package:recce/repository/forms/load_form_repository.dart';
 import 'package:recce/repository/forms/survey_form_repository.dart';
-
 part 'form_state.dart';
 
 class FormCubit extends Cubit<FormStates> {
@@ -186,7 +185,7 @@ Future<void> uploadPhotosAndSubmitForm(Map<String, PhotoPickerData> photoPickerD
           await _formRepository.fetchSchoolNames(udisecode.toString());
       if (kDebugMode) {
         //27251801204
-        print('This is response from fetch school $response');
+        print('This is response from fetch school $response for $udisecode');
       }
       print(response);
       return response;

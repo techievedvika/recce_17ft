@@ -26,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
           child: Column(
             children: [
                  SizedBox(height: 300,),
-              Text("RECEE 17000ft Foundation",style: TextStyle(color:AppColors.primary,fontSize: 25),),
+              Text("RECCE 17000ft Foundation",style: TextStyle(color:AppColors.primary,fontSize: 25),),
 
             SizedBox(height: 100,),
               LoadingWidget(),

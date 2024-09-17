@@ -51,10 +51,9 @@ class FormView extends StatelessWidget {
       onWillPop: () async {
         return _showExitConfirmationDialog(context);
       },
-      child: BlocConsumer<NetworkCubit,NetworkState>(
-
-        listener: (context,networkState) {
-           if (networkState is NetworkDisconnected) {
+      child: BlocConsumer<NetworkCubit, NetworkState>(
+        listener: (context, networkState) {
+          if (networkState is NetworkDisconnected) {
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(
                 content: Text('No Internet Connection'),
@@ -65,82 +64,83 @@ class FormView extends StatelessWidget {
         },
         builder: (context, networkState) {
           if (networkState is NetworkConnected) {
-          return BlocConsumer<FormCubit, FormStates>(
-            listener: (context, state) {
-              // if (state is FormLoading) {
-              //   const Center(child: CircularProgressIndicator());
-              // }
-              if (state is FormSubmitted) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
+            return BlocConsumer<FormCubit, FormStates>(
+              listener: (context, state) {
+                // if (state is FormLoading) {
+                //   const Center(child: CircularProgressIndicator());
+                // }
+                if (state is FormSubmitted) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      backgroundColor: AppColors.primary,
+                      content:
+                          Text('Form submitted: ${state.formData.message}'),
+                    ),
+                  );
+                  Navigator.pushNamed(context, '/home_screen');
+                } else if (state is FormError) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      backgroundColor: AppColors.primary,
+                      content: Text('Error: ${state.message}'),
+                    ),
+                  );
+
+                  Navigator.pushNamed(context, '/home_screen');
+                }
+              },
+              builder: (context, state) {
+                if (state is FormLoading) {
+                  return const Center(
+                      child: CircularProgressIndicator(
                     backgroundColor: AppColors.primary,
-                    content: Text('Form submitted: ${state.formData.message}'),
-                  ),
-                );
-                Navigator.pushNamed(context, '/home_screen');
-              } else if (state is FormError) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    backgroundColor: AppColors.primary,
-                    content: Text('Error: ${state.message}'),
-                  ),
-                );
-          
-                Navigator.pushNamed(context, '/home_screen');
-              }
-            },
-            builder: (context, state) {
-              if (state is FormLoading) {
+                  ));
+                } else if (state is FormUpLoading) {
+                  return Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Center(
+                            child: CircularPercentIndicator(
+                          animationDuration: 200,
+                          // animation: true,
+                          radius: 50.0,
+                          lineWidth: 10.0,
+                          percent: state.progress,
+                          center: Text(
+                              '${(state.progress * 100).toStringAsFixed(0)}%'),
+                          progressColor: AppColors.primary,
+                        )),
+                        // CircularProgressIndicator(
+                        //   value: state.progress,
+                        //   backgroundColor: AppColors.primary,
+                        // ),
+                        //  const SizedBox(height: 16),
+                        //  Text('${(state.progress * 100).toStringAsFixed(0)}% uploaded',style: const TextStyle(fontSize: 16),),
+                      ],
+                    ),
+                  );
+                } else if (state is FormLoaded) {
+                  return FormWidget(
+                    formData: mapJson,
+                    formName: formName,
+                    currentPosition: position,
+                    id: id,
+                  );
+                } else if (state is FormError) {
+                  return Center(child: Text(state.message));
+                }
                 return const Center(
-                    child: CircularProgressIndicator(
-                  backgroundColor: AppColors.primary,
+                    child: Text(
+                  'Please wait...',
+                  style: TextStyle(
+                      color: AppColors.primary,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold),
                 ));
-              } else if (state is FormUpLoading) {
-                return Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Center(
-                          child: CircularPercentIndicator(
-                        animationDuration: 200,
-                        // animation: true,
-                        radius: 50.0,
-                        lineWidth: 10.0,
-                        percent: state.progress,
-                        center:
-                            Text('${(state.progress * 100).toStringAsFixed(0)}%'),
-                        progressColor: AppColors.primary,
-                      )),
-                      // CircularProgressIndicator(
-                      //   value: state.progress,
-                      //   backgroundColor: AppColors.primary,
-                      // ),
-                      //  const SizedBox(height: 16),
-                      //  Text('${(state.progress * 100).toStringAsFixed(0)}% uploaded',style: const TextStyle(fontSize: 16),),
-                    ],
-                  ),
-                );
-              } else if (state is FormLoaded) {
-                return FormWidget(
-                  formData: mapJson,
-                  formName: formName,
-                  currentPosition: position,
-                  id: id,
-                );
-              } else if (state is FormError) {
-                return Center(child: Text(state.message));
-              }
-              return const Center(
-                  child: Text(
-                'Please wait...',
-                style: TextStyle(
-                    color: AppColors.primary,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold),
-              ));
-            },
-          );
-        } else if (networkState is NetworkDisconnected) {
+              },
+            );
+          } else if (networkState is NetworkDisconnected) {
             return NoInternetWidget(
               onRetry: () {
                 context.read<NetworkCubit>();
@@ -550,9 +550,25 @@ class _FormWidgetState extends State<FormWidget> {
                                 // Table Header
                                 const Row(
                                   children: [
-                                    Expanded(child: Text('Device Type',style: TextStyle(fontWeight: FontWeight.bold,),)),
-                                    Expanded(child: Text('Total Devices',style: TextStyle(fontWeight: FontWeight.bold),)),
-                                    Expanded(child: Text('Working Devices',style: TextStyle(fontWeight: FontWeight.bold),)),
+                                    Expanded(
+                                        child: Text(
+                                      'Device Type',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    )),
+                                    Expanded(
+                                        child: Text(
+                                      'Total Devices',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold),
+                                    )),
+                                    Expanded(
+                                        child: Text(
+                                      'Working Devices',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold),
+                                    )),
                                   ],
                                 ),
 
@@ -579,14 +595,17 @@ class _FormWidgetState extends State<FormWidget> {
                                       Row(
                                         children: [
                                           Expanded(
-                                            child: Text(deviceType[
-                                                'label'],style: const TextStyle(fontWeight: FontWeight.bold)), // Display the device name
+                                            child: Text(deviceType['label'],
+                                                style: const TextStyle(
+                                                    fontWeight: FontWeight
+                                                        .bold)), // Display the device name
                                           ),
                                           Expanded(
                                             child: CustomTextFormField(
                                               textController: totalController,
                                               labelText: 'Total',
-                                              textInputType: TextInputType.number,
+                                              textInputType:
+                                                  TextInputType.number,
                                               validator: (value) {
                                                 if (value == null ||
                                                     value.isEmpty) {
@@ -598,24 +617,28 @@ class _FormWidgetState extends State<FormWidget> {
                                                 _formValues[
                                                         'total_${deviceType['id']}'] =
                                                     value;
-                                              
                                               },
                                             ),
                                           ),
-                                          const SizedBox(width: 15,),
+                                          const SizedBox(
+                                            width: 15,
+                                          ),
                                           Expanded(
                                             child: CustomTextFormField(
                                               textController: workingController,
                                               labelText: 'Working',
-                                              textInputType: TextInputType.number,
+                                              textInputType:
+                                                  TextInputType.number,
                                               validator: (value) {
-                                                int total = int.tryParse(_formValues[
-                                                            'total_${deviceType['id']}'] ??
-                                                        '') ??
+                                                int total = int.tryParse(
+                                                        _formValues[
+                                                                'total_${deviceType['id']}'] ??
+                                                            '') ??
                                                     0;
                                                 int working =
-                                                    int.tryParse(value ?? '') ?? 0;
-                                      
+                                                    int.tryParse(value ?? '') ??
+                                                        0;
+
                                                 if (value == null ||
                                                     value.isEmpty) {
                                                   return 'Field required'; // Validation for working devices
@@ -628,16 +651,16 @@ class _FormWidgetState extends State<FormWidget> {
                                                 _formValues[
                                                         'working_${deviceType['id']}'] =
                                                     value;
-                                              
                                               },
                                             ),
                                           ),
                                         ],
                                       ),
-                                      const SizedBox(height: 15,)
+                                      const SizedBox(
+                                        height: 15,
+                                      )
                                     ],
                                   );
-                                  
                                 }).toList(),
                               ],
                             );
@@ -1357,25 +1380,34 @@ class _FormWidgetState extends State<FormWidget> {
                                     true; // Track overall form validity
 
                                 // Iterate through each section and its fields to perform validation
-                                 // Iterate over each section
-  widget.formData!['sections'].forEach((section) {
-    // Iterate over each field in the section
-    section['fields'].forEach((field) {
-      // Recursively validate the field and its nested fields (if any)
-      isValid = _validateField(field) && isValid;
+                                // Iterate over each section
+                                widget.formData!['sections'].forEach((section) {
+                                  // Iterate over each field in the section
+                                  section['fields'].forEach((field) {
+                                    // Recursively validate the field and its nested fields (if any)
+                                    isValid = _validateField(field) && isValid;
 
-      // Check for nested otherOption fields and validate them
-      if (field.containsKey('otherOption') && field['otherOption'] is Map) {
-        if(field['otherOption']['fields'] != null || field['otherOption']['fields'] == ''){
-        final otherOptionFields = field['otherOption']['fields'] as List<dynamic>;
-        for (var nestedField in otherOptionFields) {
-          // Validate nested fields in otherOption
-          isValid = _validateField(nestedField) && isValid;
-        }
-        }
-      }
-    });
-  });
+                                    // Check for nested otherOption fields and validate them
+                                    if (field.containsKey('otherOption') &&
+                                        field['otherOption'] is Map) {
+                                      if (field['otherOption']['fields'] !=
+                                              null ||
+                                          field['otherOption']['fields'] ==
+                                              '') {
+                                        final otherOptionFields =
+                                            field['otherOption']['fields']
+                                                as List<dynamic>;
+                                        for (var nestedField
+                                            in otherOptionFields) {
+                                          // Validate nested fields in otherOption
+                                          isValid =
+                                              _validateField(nestedField) &&
+                                                  isValid;
+                                        }
+                                      }
+                                    }
+                                  });
+                                });
                                 // Validate form before showing the confirmation dialog
                                 if ((_formKey.currentState?.validate() ??
                                         false) &&
@@ -1456,7 +1488,7 @@ class _FormWidgetState extends State<FormWidget> {
     bool isValid = true;
 
     // Check if the field is a photo picker
-    if (field['type'] == 'photo_picker' ) {
+    if (field['type'] == 'photo_picker') {
       print('Found the photo_picker');
       final bool isRequired = field['validation']?['required'] ?? false;
       final int minPhotos = field['validation']?['minPhotos'] ?? 0;
@@ -1488,18 +1520,16 @@ class _FormWidgetState extends State<FormWidget> {
       // Perform checkbox validation
       if (isRequired && selectedValues.isEmpty) {
         isValid = false;
-      
-      setState(() {
-         validatemessage =
-            'Field ${field['labelText']} requires at least one option to be selected.';
-      });
-       
+
+        setState(() {
+          validatemessage =
+              'Field ${field['labelText']} requires at least one option to be selected.';
+        });
       } else {
         setState(() {
-           validatemessage = null;
-        validatemessage = '';
+          validatemessage = null;
+          validatemessage = '';
         });
-       
       }
     }
 
@@ -1833,11 +1863,16 @@ class _FormWidgetState extends State<FormWidget> {
             // LabelText(label: otherOption['labelText']),
             const SizedBox(height: 10),
             ElevatedButton(
+              style:
+                  ElevatedButton.styleFrom(backgroundColor: AppColors.primary),
               onPressed: () {
                 _showBottomSheet(
                     context, otherOption['fields'], otherOption['id']);
               },
-              child: const Text('Add Record'),
+              child: const Text(
+                'Add Record',
+                style: TextStyle(color: AppColors.background),
+              ),
             ),
             const SizedBox(height: 16),
             _buildDataTable(otherOption['id']),
@@ -2229,22 +2264,38 @@ class _FormWidgetState extends State<FormWidget> {
     return Column(
       children: [
         if (photoPickerData.photos.isEmpty)
-          const Text('No photos selected')
+          const Text(
+            'No photos selected',
+            style: TextStyle(
+              color: AppColors.error,
+              fontWeight: FontWeight.bold,
+            ),
+          )
         else
           _buildPhotoPreview(photoPickerData),
         Row(
           children: [
             if (field['options']['allowCamera'] ?? false)
               ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColors.primary),
                 onPressed: () => _pickImageFromSource(
                     photoPickerData.id, ImageSource.camera, maxPhotos),
-                child: const Text('Take Photo'),
+                child: const Text(
+                  'Take Photo',
+                  style: TextStyle(color: AppColors.background),
+                ),
               ),
             if (field['options']['allowGallery'] ?? false)
               ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColors.primary),
                 onPressed: () => _pickImageFromSource(
                     photoPickerData.id, ImageSource.gallery, maxPhotos),
-                child: const Text('Choose from Gallery'),
+                child: const Text(
+                  'Choose from Gallery',
+                  style: TextStyle(color: AppColors.background),
+                ),
               ),
           ],
         ),
@@ -2321,7 +2372,9 @@ class _FormWidgetState extends State<FormWidget> {
     );
 
     setUdise(value) {
+
       setState(() {
+    
         udisefield = value;
       });
     }
@@ -2330,6 +2383,7 @@ class _FormWidgetState extends State<FormWidget> {
     setSchoolName(value) {
       setState(() {
         _schoolName = value.replaceAll(RegExp(r'^\[|\]$'), '');
+        _formValues['schooName'] = _schoolName;
       });
     }
 
@@ -2356,10 +2410,11 @@ class _FormWidgetState extends State<FormWidget> {
           onChanged: (value) async {
             if (value.isNotEmpty) {
               if (value.length == 11) {
-                setUdise(value);
+               
                 _schoolName =
                     await context.read<FormCubit>().fetchSchool(value);
                 setSchoolName(_schoolName);
+                 
               }
             }
           },
